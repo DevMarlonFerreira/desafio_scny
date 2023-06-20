@@ -3,7 +3,10 @@
 import { ReactElement } from "react";
 import axios from "axios";
 
+import SimpleContainer from "../../../components/SimpleContainer";
+import Navigation from "../../../components/Navigation";
 import Grid from "../../../components/Grid";
+
 // import ClienteCard from "../../../components/ClienteCard";
 
 import { IClientes } from "../../../typings/IClientes.d";
@@ -17,12 +20,13 @@ const page = async (): Promise<ReactElement> => {
   const { data } = await axios.get<[IClientes]>(URL);
 
   return (
-    <div>
+    <SimpleContainer>
+      <Navigation />
       {/* {data.map((cliente: ICliente) => (
         <ClienteCard key={cliente.id} cliente={cliente} />
       ))} */}
       <Grid data={data} />
-    </div>
+    </SimpleContainer>
   );
 };
 
