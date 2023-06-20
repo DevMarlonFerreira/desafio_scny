@@ -13,7 +13,13 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 import { ICliente } from "../typings/ICliente.d";
 
+import BasicModal from "./Modal";
+
 export default function ClienteCard({ cliente }: { cliente: ICliente }) {
+  const [open, setOpen] = React.useState(false);
+
+  const handleDelete = () => setOpen(!open);
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
@@ -43,11 +49,13 @@ export default function ClienteCard({ cliente }: { cliente: ICliente }) {
           Editar
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label="share">
+        <IconButton aria-label="share" onClick={handleDelete}>
           Excluir
           <ShareIcon />
         </IconButton>
       </CardActions>
+      <BasicModal cliente={cliente} handle={handleDelete} open={open}/>
     </Card>
   );
 }
+// map(arg0: (cliente: any) => import("react").JSX.Element): import("react").ReactNode;
