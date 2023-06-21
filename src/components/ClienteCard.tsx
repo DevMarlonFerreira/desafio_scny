@@ -13,7 +13,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 import { ICliente } from "../typings/ICliente.d";
 
-import BasicModal from "./Modal";
+import BasicModal from "./ModalDeleteCliente";
 
 export default function ClienteCard({ cliente }: { cliente: ICliente }) {
   const [open, setOpen] = useState(false);
