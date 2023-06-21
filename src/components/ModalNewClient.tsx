@@ -32,15 +32,33 @@ export default function NewClient({
   handle: () => void;
   open: boolean;
 }) {
-  const [numeroDocumento, setNumeroDocumento] = useState("");
-  const [email, setEmail] = useState("");
-  const [tipoDocumento, setTipoDocumento] = useState("");
   const [nome, setNome] = useState("");
+  const [tipoDocumento, setTipoDocumento] = useState("");
+  const [numeroDocumento, setNumeroDocumento] = useState("");
+  const [uf, setUf] = useState("");
+  const [cidade, setCidade] = useState("");
+  const [bairro, setBairro] = useState("");
   const [logradouro, setLogradouro] = useState("");
   const [numero, setNumero] = useState("");
-  const [bairro, setBairro] = useState("");
-  const [cidade, setCidade] = useState("");
-  const [uf, setUf] = useState("");
+
+  const execute = async () => {
+    await axios.post(`${URL}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: { 
+        nome,
+        tipoDocumento,
+        numeroDocumento,
+        uf,
+        cidade,
+        bairro,
+        logradouro,
+        numero,
+       }
+    });
+    handle();
+  };
 
   return (
     <div>
@@ -95,15 +113,63 @@ export default function NewClient({
             // error={emailError}
           />
           <TextField
-            label="Nome"
-            onChange={(e) => setNome(e.target.value)}
+            label="UF"
+            onChange={(e) => setUf(e.target.value)}
             required
             variant="outlined"
             color="secondary"
-            type="nome"
+            type="text"
             sx={{ mb: 3 }}
             fullWidth
-            value={nome}
+            value={uf}
+            // error={emailError}
+          />
+          <TextField
+            label="Cidade"
+            onChange={(e) => setCidade(e.target.value)}
+            required
+            variant="outlined"
+            color="secondary"
+            type="text"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={cidade}
+            // error={emailError}
+          />
+          <TextField
+            label="Bairro"
+            onChange={(e) => setBairro(e.target.value)}
+            required
+            variant="outlined"
+            color="secondary"
+            type="text"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={bairro}
+            // error={emailError}
+          />
+          <TextField
+            label="Logradouro"
+            onChange={(e) => setLogradouro(e.target.value)}
+            required
+            variant="outlined"
+            color="secondary"
+            type="text"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={logradouro}
+            // error={emailError}
+          />
+          <TextField
+            label="Número"
+            onChange={(e) => setNumero(e.target.value)}
+            required
+            variant="outlined"
+            color="secondary"
+            type="text"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={numero}
             // error={emailError}
           />
           <Button aria-label="cadastrar cliente">Cadastrar</Button>
