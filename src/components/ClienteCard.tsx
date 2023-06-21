@@ -21,7 +21,7 @@ export default function ClienteCard({ cliente }: { cliente: ICliente }) {
   const handleDelete = () => setOpen(!open);
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 300 }}>
       <CardHeader
         action={
           <IconButton aria-label="settings">

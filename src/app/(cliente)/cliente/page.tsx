@@ -6,6 +6,7 @@ import axios from "axios";
 import SimpleContainer from "../../../components/SimpleContainer";
 import Navigation from "../../../components/Navigation";
 import Grid from "../../../components/Grid";
+import Button from "../../../components/Button";
 
 // import ClienteCard from "../../../components/ClienteCard";
 
@@ -25,6 +26,7 @@ const page = async (): Promise<ReactElement> => {
       {/* {data.map((cliente: ICliente) => (
         <ClienteCard key={cliente.id} cliente={cliente} />
       ))} */}
+      <Button>Novo cliente</Button>
       <Grid data={data} />
     </SimpleContainer>
   );
