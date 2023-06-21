@@ -10,7 +10,6 @@ type Props = {
   }
 
 export default function Btn({ children, handle, ariaLabel }: Props) {
-  console.log('Botao')
   return (
     <Button onClick={handle} aria-label={ariaLabel}>
         { children }

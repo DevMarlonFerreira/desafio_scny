@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from 'react';
 import FormControl from '@mui/material/FormControl';
 
 type Props = {

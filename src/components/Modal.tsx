@@ -1,10 +1,8 @@
-import * as React from "react";
 import axios from "axios";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import IconButton from "@mui/material/IconButton";
 
 import { ICliente } from "../typings/ICliente.d";
 

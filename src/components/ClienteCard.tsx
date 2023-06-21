@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { useState } from "react";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
@@ -16,8 +16,7 @@ import { ICliente } from "../typings/ICliente.d";
 import BasicModal from "./Modal";
 
 export default function ClienteCard({ cliente }: { cliente: ICliente }) {
-  const [open, setOpen] = React.useState(false);
-
+  const [open, setOpen] = useState(false);
   const handleDelete = () => setOpen(!open);
 
   return (
