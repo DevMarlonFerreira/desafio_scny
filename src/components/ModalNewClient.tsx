@@ -29,8 +29,6 @@ export default function NewClient({
   handle: () => void;
   open: boolean;
 }) {
-  console.log('--------')
-
   return (
     <div>
       <Modal
@@ -47,9 +45,9 @@ export default function NewClient({
             Novo
           </Typography>
           <Typography id="modal-modal-title">
-            Realmente deseja excluir este cliente?
+            
           </Typography>
-          <Button aria-label="excluir cliente">Excluir</Button>
+          <Button aria-label="cadastrar cliente">Cadastrar</Button>
         </Box>
       </Modal>
     </div>
