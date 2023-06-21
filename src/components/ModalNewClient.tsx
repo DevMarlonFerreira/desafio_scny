@@ -43,19 +43,18 @@ export default function NewClient({
 
   const execute = async () => {
     await axios.post(`${URL}`, {
+      nome,
+      tipoDocumento,
+      numeroDocumento,
+      uf,
+      cidade,
+      bairro,
+      logradouro,
+      numero,
+    },{
       headers: {
         "Content-Type": "application/json",
       },
-      data: { 
-        nome,
-        tipoDocumento,
-        numeroDocumento,
-        uf,
-        cidade,
-        bairro,
-        logradouro,
-        numero,
-       }
     });
     handle();
   };
@@ -172,7 +171,7 @@ export default function NewClient({
             value={numero}
             // error={emailError}
           />
-          <Button aria-label="cadastrar cliente">Cadastrar</Button>
+          <Button onClick={execute} aria-label="cadastrar cliente">Cadastrar</Button>
         </Box>
       </Modal>
     </div>
