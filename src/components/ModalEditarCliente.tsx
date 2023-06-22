@@ -1,4 +1,5 @@
-import axios from "axios";
+import ClienteDataService from "../app/services/cliente.service";
+
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -30,10 +31,6 @@ export default function BasicModal({
   open: boolean;
 }) {
   const [nome, setNome] = useState(cliente.nome);
-  const [tipoDocumento, setTipoDocumento] = useState(cliente.tipoDocumento);
-  const [numeroDocumento, setNumeroDocumento] = useState(
-    cliente.numeroDocumento
-  );
   const [uf, setUf] = useState(cliente.uf);
   const [cidade, setCidade] = useState(cliente.cidade);
   const [bairro, setBairro] = useState(cliente.bairro);
@@ -41,23 +38,17 @@ export default function BasicModal({
   const [numero, setNumero] = useState(cliente.numero);
 
   const execute = async () => {
-    await axios.put(
-      `https://api-deslocamento.herokuapp.com/api/v1/Cliente/${cliente.id}`,
-      {
-        id: cliente.id,
-        nome,
-        uf,
-        cidade,
-        bairro,
-        logradouro,
-        numero,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const body = {
+      id: cliente.id,
+      nome,
+      uf,
+      cidade,
+      bairro,
+      logradouro,
+      numero,
+    }
+
+    await ClienteDataService.update(body, cliente.id)
     handle();
   };
 
@@ -84,7 +75,6 @@ export default function BasicModal({
               sx={{ mb: 3 }}
               fullWidth
               value={nome}
-              // error={emailError}
             />
             <TextField
               label="UF"
@@ -96,7 +86,6 @@ export default function BasicModal({
               sx={{ mb: 3 }}
               fullWidth
               value={uf}
-              // error={emailError}
             />
             <TextField
               label="Cidade"
@@ -108,7 +97,6 @@ export default function BasicModal({
               sx={{ mb: 3 }}
               fullWidth
               value={cidade}
-              // error={emailError}
             />
             <TextField
               label="Bairro"
@@ -120,7 +108,6 @@ export default function BasicModal({
               sx={{ mb: 3 }}
               fullWidth
               value={bairro}
-              // error={emailError}
             />
             <TextField
               label="Logradouro"
@@ -132,7 +119,6 @@ export default function BasicModal({
               sx={{ mb: 3 }}
               fullWidth
               value={logradouro}
-              // error={emailError}
             />
             <TextField
               label="Número"
@@ -140,11 +126,10 @@ export default function BasicModal({
               required
               variant="outlined"
               color="secondary"
-              type="text"
+              type="number"
               sx={{ mb: 3 }}
               fullWidth
               value={numero}
-              // error={emailError}
             />
           </Typography>
           <Button onClick={execute} aria-label="editar cliente">

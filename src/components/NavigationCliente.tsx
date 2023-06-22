@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
@@ -12,8 +12,8 @@ import ModalNewClient from "./ModalNewClient";
 
 
 export default function NavigationCliente() {
-  const [value, setValue] = React.useState(0);
-  const [open, setOpen] = React.useState(false);
+  const [value, setValue] = useState(0);
+  const [open, setOpen] = useState(false);
   const newModal = () => setOpen(!open);
 
 

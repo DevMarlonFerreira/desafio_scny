@@ -1,4 +1,5 @@
-import axios from "axios";
+import ClienteDataService from "../app/services/cliente.service";
+
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -28,14 +29,10 @@ export default function BasicModal({
   open: boolean;
 }) {
   const execute = async () => {
-    await axios.delete(`https://api-deslocamento.herokuapp.com/api/v1/Cliente/${cliente.id}`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: { "id": cliente.id }
-    });
+    await ClienteDataService.delete(cliente.id)
     handle();
   };
+
 
   return (
     <div>

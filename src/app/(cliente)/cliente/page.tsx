@@ -1,18 +1,16 @@
 "use client";
 
 import { ReactElement } from "react";
-import axios from "axios";
+
+import ClienteDataService from "../../services/cliente.service";
 
 import SimpleContainer from "../../../components/SimpleContainer";
 import Navigation from "../../../components/Navigation";
 import NavigationCliente from "../../../components/NavigationCliente";
 import Grid from "../../../components/Grid";
-import { IClientes } from "../../../typings/IClientes.d";
 
 const Page = async (): Promise<ReactElement> => {
-  const { data } = await axios.get<[IClientes]>(
-    "https://api-deslocamento.herokuapp.com/api/v1/Cliente"
-  );
+  const { data } = await ClienteDataService.getAll();
 
   return (
     <SimpleContainer>

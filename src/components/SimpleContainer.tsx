@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from 'react';
+import { Fragment } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 
@@ -10,11 +10,11 @@ type Props = {
 
 export default function SimpleContainer({ children }: Props) {
   return (
-    <React.Fragment>
+    <Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
         { children }
       </Container>
-    </React.Fragment>
+    </Fragment>
   );
 }
