@@ -6,8 +6,6 @@ import Modal from "@mui/material/Modal";
 
 import { ICliente } from "../typings/ICliente.d";
 
-const URL = "https://api-deslocamento.herokuapp.com/api/v1/Cliente";
-
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -30,8 +28,7 @@ export default function BasicModal({
   open: boolean;
 }) {
   const execute = async () => {
-    console.log(`${URL}/${cliente.id}`);
-    await axios.delete(`${URL}/${cliente.id}`, {
+    await axios.delete(`${process.env.URL_CLIENTE as string}/${cliente.id}`, {
       headers: {
         "Content-Type": "application/json",
       },

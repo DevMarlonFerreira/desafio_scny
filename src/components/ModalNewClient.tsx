@@ -11,8 +11,6 @@ import { ICliente } from "../typings/ICliente.d";
 import { TextField } from "@mui/material";
 import FormControl from "./FormControl";
 
-const URL = "https://api-deslocamento.herokuapp.com/api/v1/Cliente";
-
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -42,7 +40,7 @@ export default function NewClient({
   const [numero, setNumero] = useState("");
 
   const execute = async () => {
-    await axios.post(`${URL}`, {
+    await axios.post(`${process.env.URL_CLIENTE as string}`, {
       nome,
       tipoDocumento,
       numeroDocumento,
