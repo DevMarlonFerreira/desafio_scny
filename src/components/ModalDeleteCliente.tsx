@@ -28,7 +28,7 @@ export default function BasicModal({
   open: boolean;
 }) {
   const execute = async () => {
-    await axios.delete(`${process.env.URL_CLIENTE as string}/${cliente.id}`, {
+    await axios.delete(`https://api-deslocamento.herokuapp.com/api/v1/Cliente/${cliente.id}`, {
       headers: {
         "Content-Type": "application/json",
       },

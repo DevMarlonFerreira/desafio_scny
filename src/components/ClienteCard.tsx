@@ -14,10 +14,15 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { ICliente } from "../typings/ICliente.d";
 
 import BasicModal from "./ModalDeleteCliente";
+import ModalEditarCliente from "./ModalEditarCliente";
+
 
 export default function ClienteCard({ cliente }: { cliente: ICliente }) {
   const [open, setOpen] = useState(false);
+  const [openPut, setPut] = useState(false);
+
   const handleDelete = () => setOpen(!open);
+  const handlePut = () => setPut(!openPut);
 
   return (
     <Card sx={{ maxWidth: 300 }}>
@@ -44,16 +49,17 @@ export default function ClienteCard({ cliente }: { cliente: ICliente }) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="aeditar" onClick={handlePut}>
           Editar
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label="share" onClick={handleDelete}>
+        <IconButton aria-label="excluir" onClick={handleDelete}>
           Excluir
           <ShareIcon />
         </IconButton>
       </CardActions>
       <BasicModal cliente={cliente} handle={handleDelete} open={open}/>
+      <ModalEditarCliente cliente={cliente} handle={handlePut} open={openPut}/>
     </Card>
   );
 }

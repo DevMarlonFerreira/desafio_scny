@@ -40,7 +40,7 @@ export default function NewClient({
   const [numero, setNumero] = useState("");
 
   const execute = async () => {
-    await axios.post(`${process.env.URL_CLIENTE as string}`, {
+    await axios.post("https://api-deslocamento.herokuapp.com/api/v1/Cliente", {
       nome,
       tipoDocumento,
       numeroDocumento,

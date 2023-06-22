@@ -10,7 +10,9 @@ import Grid from "../../../components/Grid";
 import { IClientes } from "../../../typings/IClientes.d";
 
 const Page = async (): Promise<ReactElement> => {
-  const { data } = await axios.get<[IClientes]>(process.env.URL_CLIENTE as string);
+  const { data } = await axios.get<[IClientes]>(
+    "https://api-deslocamento.herokuapp.com/api/v1/Cliente"
+  );
 
   return (
     <SimpleContainer>
