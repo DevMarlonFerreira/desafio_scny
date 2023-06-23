@@ -18,7 +18,7 @@ const Item: any = styled(Paper)(({ theme }) => ({
 export default function BasicGrid({ data }: { data: Object[] }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
+      <Grid container spacing={0} justifyContent="space-between">
         {data.map((item: any, key: number) => (
           <Grid key={key}>
             <Item>
