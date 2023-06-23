@@ -1,5 +1,5 @@
 import http from "../http-common";
-import { ICliente } from "../../typings/ICliente.d"
+import { ICliente } from "typings/ICliente.d"
 
 class ClienteDataService {
   getAll() {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ClienteDataService from "../../app/services/cliente.service";
+import ClienteDataService from "app/services/cliente.service";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";

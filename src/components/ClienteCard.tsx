@@ -11,7 +11,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
-import { ICliente } from "../typings/ICliente.d";
+import { ICliente } from "typings/ICliente.d";
 
 import BasicModal from "./cliente/ModalDelete";
 import ModalEditarCliente from "./cliente/ModalEditar";

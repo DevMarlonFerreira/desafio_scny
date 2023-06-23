@@ -1,11 +1,11 @@
-import ClienteDataService from "../../app/services/cliente.service";
+import ClienteDataService from "app/services/cliente.service";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
-import { ICliente } from "../../typings/ICliente.d";
+import { ICliente } from "typings/ICliente.d";
 
 const style = {
   position: "absolute" as "absolute",

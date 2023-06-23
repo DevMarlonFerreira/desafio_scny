@@ -2,12 +2,12 @@
 
 import { ReactElement } from "react";
 
-import ClienteDataService from "../../services/cliente.service";
+import ClienteDataService from "app/services/cliente.service";
 
-import SimpleContainer from "../../../components/SimpleContainer";
-import Navigation from "../../../components/Navigation";
-import NavigationCliente from "../../../components/cliente/Navigation";
-import Grid from "../../../components/Grid";
+import SimpleContainer from "components/SimpleContainer";
+import Navigation from "components/Navigation";
+import NavigationCliente from "components/cliente/Navigation";
+import Grid from "components/Grid";
 
 const Page = async (): Promise<ReactElement> => {
   const { data } = await ClienteDataService.getAll();
