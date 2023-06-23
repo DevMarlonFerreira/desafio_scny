@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import ClienteDataService from "app/services/cliente.service";
 
@@ -31,12 +31,22 @@ export default function BasicModal({
   handle: () => void;
   open: boolean;
 }) {
-  const [nome, setNome] = useState(cliente.nome);
-  const [uf, setUf] = useState(cliente.uf);
-  const [cidade, setCidade] = useState(cliente.cidade);
-  const [bairro, setBairro] = useState(cliente.bairro);
-  const [logradouro, setLogradouro] = useState(cliente.logradouro);
-  const [numero, setNumero] = useState(cliente.numero);
+
+  const [nome, setNome] = useState<ICliente["nome"]>(cliente.nome);
+  const [uf, setUf] = useState<ICliente["uf"]>(cliente.uf);
+  const [cidade, setCidade] = useState<ICliente["cidade"]>(cliente.cidade);
+  const [bairro, setBairro] = useState<ICliente["bairro"]>(cliente.bairro);
+  const [logradouro, setLogradouro] = useState<ICliente["logradouro"]>(cliente.logradouro);
+  const [numero, setNumero] = useState<ICliente["numero"]>(cliente.numero);
+
+  useEffect(() => {
+    setNome(cliente.nome);
+    setUf(cliente.uf);
+    setCidade(cliente.cidade);
+    setBairro(cliente.bairro);
+    setLogradouro(cliente.logradouro);
+    setNumero(cliente.numero);
+  }, [cliente])
 
   const execute = async () => {
     const body = {
@@ -65,7 +75,7 @@ export default function BasicModal({
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Edição de cliente
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }} component={'span'}>
             <TextField
               label="Nome"
               onChange={(e) => setNome(e.target.value)}
