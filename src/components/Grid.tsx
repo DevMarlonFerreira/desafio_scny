@@ -15,7 +15,7 @@ const Item: any = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function BasicGrid({ data }: { data: [Object] }) {
+export default function BasicGrid({ data }: { data: Object[] }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>

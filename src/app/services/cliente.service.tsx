@@ -1,11 +1,9 @@
 import http from "../http-common";
-import { IClientes } from "../../typings/IClientes.d"
 import { ICliente } from "../../typings/ICliente.d"
-
 
 class ClienteDataService {
   getAll() {
-    return http.get<[ICliente]>("/Cliente");
+    return http.get<ICliente[]>("/Cliente");
   }
 
   get(id: number) {
