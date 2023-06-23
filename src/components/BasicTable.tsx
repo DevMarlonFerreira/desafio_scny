@@ -11,13 +11,7 @@ import { IconButton } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 const ModalEditarCliente = lazy(() => import("./cliente/ModalEditar"));
 
-export default function BasicTable({
-  heads,
-  rows,
-}: {
-  heads: Array<string>;
-  rows: ICliente[];
-}) {
+export default function BasicTable({ rows }: { rows: ICliente[] }) {
   const [openPut, setPut] = useState(false);
   const [cliente, setCliente] = useState<ICliente>();
 
@@ -30,21 +24,21 @@ export default function BasicTable({
     showPut();
   };
 
-  useEffect(() => {
-
-  }, [cliente])
+  useEffect(() => {}, [cliente]);
 
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            {heads.map((head: string, key: number) => (
-              <TableCell align="center" key={key}>
-                {" "}
-                {head}{" "}
-              </TableCell>
-            ))}
+            <TableCell align="center">Nome</TableCell>
+            <TableCell align="center">Tipo de documento</TableCell>
+            <TableCell align="center">Número do documento</TableCell>
+            <TableCell align="center">UF</TableCell>
+            <TableCell align="center">Cidade</TableCell>
+            <TableCell align="center">Bairro</TableCell>
+            <TableCell align="center">Logradouro</TableCell>
+            <TableCell align="center">Número</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -80,11 +74,11 @@ export default function BasicTable({
         </TableBody>
       </Table>
       {cliente && (
-          <ModalEditarCliente
-            cliente={cliente as ICliente}
-            handle={showPut}
-            open={openPut}
-          />
+        <ModalEditarCliente
+          cliente={cliente as ICliente}
+          handle={showPut}
+          open={openPut}
+        />
       )}
     </TableContainer>
   );

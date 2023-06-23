@@ -13,16 +13,12 @@ import BasicTable from "components/BasicTable";
 const Page = async (): Promise<ReactElement> => {
   const { data } = await ClienteDataService.getAll();
 
-  const headTable = [
-    "Nome", "Tipo de documento", "Número do documento", "UF", "Cidade", "Bairro", "Logradouro", "Número"
-  ]
-
   return (
     <SimpleContainer>
       <Navigation />
       <NavigationCliente />
       {/* <Grid data={data} /> */}
-      <BasicTable heads={headTable} rows={data}/>
+      <BasicTable rows={data}/>
     </SimpleContainer>
   );
 };
