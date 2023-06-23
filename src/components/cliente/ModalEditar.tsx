@@ -31,12 +31,13 @@ export default function BasicModal({
   handle: () => void;
   open: boolean;
 }) {
-
   const [nome, setNome] = useState<ICliente["nome"]>(cliente.nome);
   const [uf, setUf] = useState<ICliente["uf"]>(cliente.uf);
   const [cidade, setCidade] = useState<ICliente["cidade"]>(cliente.cidade);
   const [bairro, setBairro] = useState<ICliente["bairro"]>(cliente.bairro);
-  const [logradouro, setLogradouro] = useState<ICliente["logradouro"]>(cliente.logradouro);
+  const [logradouro, setLogradouro] = useState<ICliente["logradouro"]>(
+    cliente.logradouro
+  );
   const [numero, setNumero] = useState<ICliente["numero"]>(cliente.numero);
 
   useEffect(() => {
@@ -46,7 +47,7 @@ export default function BasicModal({
     setBairro(cliente.bairro);
     setLogradouro(cliente.logradouro);
     setNumero(cliente.numero);
-  }, [cliente])
+  }, [cliente]);
 
   const execute = async () => {
     const body = {
@@ -57,97 +58,100 @@ export default function BasicModal({
       bairro,
       logradouro,
       numero,
-    }
+    };
 
-    await ClienteDataService.update(body, cliente.id)
+    await ClienteDataService.update(body, cliente.id);
     handle();
   };
 
   return (
-    <div>
-      <Modal
-        open={open}
-        onClose={handle}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Edição de cliente
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }} component={'span'}>
-            <TextField
-              label="Nome"
-              onChange={(e) => setNome(e.target.value)}
-              required
-              variant="outlined"
-              color="secondary"
-              type="text"
-              sx={{ mb: 3 }}
-              fullWidth
-              value={nome}
-            />
-            <TextField
-              label="UF"
-              onChange={(e) => setUf(e.target.value)}
-              required
-              variant="outlined"
-              color="secondary"
-              type="text"
-              sx={{ mb: 3 }}
-              fullWidth
-              value={uf}
-            />
-            <TextField
-              label="Cidade"
-              onChange={(e) => setCidade(e.target.value)}
-              required
-              variant="outlined"
-              color="secondary"
-              type="text"
-              sx={{ mb: 3 }}
-              fullWidth
-              value={cidade}
-            />
-            <TextField
-              label="Bairro"
-              onChange={(e) => setBairro(e.target.value)}
-              required
-              variant="outlined"
-              color="secondary"
-              type="text"
-              sx={{ mb: 3 }}
-              fullWidth
-              value={bairro}
-            />
-            <TextField
-              label="Logradouro"
-              onChange={(e) => setLogradouro(e.target.value)}
-              required
-              variant="outlined"
-              color="secondary"
-              type="text"
-              sx={{ mb: 3 }}
-              fullWidth
-              value={logradouro}
-            />
-            <TextField
-              label="Número"
-              onChange={(e) => setNumero(e.target.value)}
-              required
-              variant="outlined"
-              color="secondary"
-              type="number"
-              sx={{ mb: 3 }}
-              fullWidth
-              value={numero}
-            />
-          </Typography>
-          <Button onClick={execute} aria-label="editar cliente">
-            Salvar
-          </Button>
-        </Box>
-      </Modal>
-    </div>
+    <Modal
+      open={open}
+      onClose={handle}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+      component={"div"}
+    >
+      <Box sx={style}>
+        <Typography id="modal-modal-title" variant="h6" component="h2">
+          Edição de cliente
+        </Typography>
+        <Typography
+          id="modal-modal-description"
+          sx={{ mt: 2 }}
+          component={"span"}
+        >
+          <TextField
+            label="Nome"
+            onChange={(e) => setNome(e.target.value)}
+            required
+            variant="outlined"
+            color="secondary"
+            type="text"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={nome}
+          />
+          <TextField
+            label="UF"
+            onChange={(e) => setUf(e.target.value)}
+            required
+            variant="outlined"
+            color="secondary"
+            type="text"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={uf}
+          />
+          <TextField
+            label="Cidade"
+            onChange={(e) => setCidade(e.target.value)}
+            required
+            variant="outlined"
+            color="secondary"
+            type="text"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={cidade}
+          />
+          <TextField
+            label="Bairro"
+            onChange={(e) => setBairro(e.target.value)}
+            required
+            variant="outlined"
+            color="secondary"
+            type="text"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={bairro}
+          />
+          <TextField
+            label="Logradouro"
+            onChange={(e) => setLogradouro(e.target.value)}
+            required
+            variant="outlined"
+            color="secondary"
+            type="text"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={logradouro}
+          />
+          <TextField
+            label="Número"
+            onChange={(e) => setNumero(e.target.value)}
+            required
+            variant="outlined"
+            color="secondary"
+            type="number"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={numero}
+          />
+        </Typography>
+        <Button onClick={execute} aria-label="editar cliente">
+          Salvar
+        </Button>
+      </Box>
+    </Modal>
   );
 }

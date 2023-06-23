@@ -13,8 +13,8 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 import { ICliente } from "typings/ICliente.d";
 
-import BasicModal from "./cliente/ModalDelete";
-import ModalEditarCliente from "./cliente/ModalEditar";
+import ModalDelete from "./cliente/ModalDelete";
+import ModalEditar from "./cliente/ModalEditar";
 
 
 export default function ClienteCard({ cliente }: { cliente: ICliente }) {
@@ -58,8 +58,8 @@ export default function ClienteCard({ cliente }: { cliente: ICliente }) {
           <ShareIcon />
         </IconButton>
       </CardActions>
-      <BasicModal cliente={cliente} handle={handleDelete} open={open}/>
-      <ModalEditarCliente cliente={cliente} handle={handlePut} open={openPut}/>
+      <ModalDelete cliente={cliente} handle={handleDelete} open={open}/>
+      <ModalEditar cliente={cliente} handle={handlePut} open={openPut}/>
     </Card>
   );
 }

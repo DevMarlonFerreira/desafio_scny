@@ -8,7 +8,7 @@ import SimpleContainer from "components/SimpleContainer";
 import Navigation from "components/Navigation";
 import NavigationCliente from "components/cliente/Navigation";
 import Grid from "components/Grid";
-import BasicTable from "components/BasicTable";
+import Table from "components/cliente/Table";
 
 const Page = async (): Promise<ReactElement> => {
   const { data } = await ClienteDataService.getAll();
@@ -18,7 +18,7 @@ const Page = async (): Promise<ReactElement> => {
       <Navigation />
       <NavigationCliente />
       {/* <Grid data={data} /> */}
-      <BasicTable rows={data}/>
+      <Table rows={data}/>
     </SimpleContainer>
   );
 };

@@ -9,19 +9,21 @@ import Paper from "@mui/material/Paper";
 import { ICliente } from "typings/ICliente.d";
 import { IconButton } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-const ModalEditarCliente = lazy(() => import("./cliente/ModalEditar"));
+const ModalEditar = lazy(() => import("./ModalEditar"));
+const ModalDelete = lazy(() => import("./ModalDelete"));
 
 export default function BasicTable({ rows }: { rows: ICliente[] }) {
-  const [openPut, setPut] = useState(false);
+  const [showPut, setShowPut] = useState(false);
+  const [showDel, setShowDel] = useState(false);
+
   const [cliente, setCliente] = useState<ICliente>();
 
-  const showPut = () => {
-    setPut(!openPut);
+  const handlePut = () => {
+    setShowPut(!showPut);
   };
 
-  const handlePut = (row: ICliente) => {
-    setCliente(row);
-    showPut();
+  const handleDel = () => {
+    setShowDel(!showPut);
   };
 
   useEffect(() => {}, [cliente]);
@@ -61,11 +63,25 @@ export default function BasicTable({ rows }: { rows: ICliente[] }) {
                 {" "}
                 <IconButton
                   aria-label="editar"
-                  onClick={(e) => {
-                    handlePut(row);
+                  onClick={() => {
+                    setCliente(row);
+                    handlePut();
                   }}
                 >
                   Editar
+                  <FavoriteIcon />
+                </IconButton>
+              </TableCell>
+              <TableCell align="center">
+                {" "}
+                <IconButton
+                  aria-label="excluir"
+                  onClick={() => {
+                    setCliente(row);
+                    handleDel();
+                  }}
+                >
+                  Excluir
                   <FavoriteIcon />
                 </IconButton>
               </TableCell>
@@ -74,10 +90,17 @@ export default function BasicTable({ rows }: { rows: ICliente[] }) {
         </TableBody>
       </Table>
       {cliente && (
-        <ModalEditarCliente
+        <ModalEditar
           cliente={cliente as ICliente}
-          handle={showPut}
-          open={openPut}
+          handle={handlePut}
+          open={showPut}
+        />
+      )}
+      {cliente && (
+        <ModalDelete
+          cliente={cliente as ICliente}
+          handle={handleDel}
+          open={showDel}
         />
       )}
     </TableContainer>
