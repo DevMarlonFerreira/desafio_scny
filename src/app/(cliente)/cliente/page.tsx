@@ -6,7 +6,7 @@ import ClienteDataService from "../../services/cliente.service";
 
 import SimpleContainer from "../../../components/SimpleContainer";
 import Navigation from "../../../components/Navigation";
-import NavigationCliente from "../../../components/NavigationCliente";
+import NavigationCliente from "../../../components/cliente/Navigation";
 import Grid from "../../../components/Grid";
 
 const Page = async (): Promise<ReactElement> => {

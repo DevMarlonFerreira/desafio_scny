@@ -13,8 +13,8 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 import { ICliente } from "../typings/ICliente.d";
 
-import BasicModal from "./ModalDeleteCliente";
-import ModalEditarCliente from "./ModalEditarCliente";
+import BasicModal from "./cliente/ModalDelete";
+import ModalEditarCliente from "./cliente/ModalEditar";
 
 
 export default function ClienteCard({ cliente }: { cliente: ICliente }) {

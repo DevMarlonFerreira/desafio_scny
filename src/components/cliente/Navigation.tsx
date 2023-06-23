@@ -8,7 +8,7 @@ import RestoreIcon from "@mui/icons-material/Restore";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
-import ModalNewClient from "./ModalNewClient";
+import ModalNewClient from "./ModalNew";
 
 
 export default function NavigationCliente() {

@@ -1,4 +1,4 @@
-import ClienteDataService from "../app/services/cliente.service";
+import ClienteDataService from "../../app/services/cliente.service";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { TextField } from "@mui/material";
 
-import { ICliente } from "../typings/ICliente.d";
+import { ICliente } from "../../typings/ICliente.d";
 import { useState } from "react";
 
 const style = {
