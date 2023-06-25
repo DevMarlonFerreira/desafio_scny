@@ -23,7 +23,7 @@ export default function BasicTable({ rows }: { rows: ICliente[] }) {
   };
 
   const handleDel = () => {
-    setShowDel(!showPut);
+    setShowDel(!showDel);
   };
 
   useEffect(() => {}, [cliente]);

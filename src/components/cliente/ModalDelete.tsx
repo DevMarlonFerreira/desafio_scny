@@ -43,7 +43,7 @@ export default function BasicModal({
     await ClienteDataService.delete(id);
     handle();
   };
-
+  
   return (
     <Modal
       component={"div"}
@@ -55,8 +55,9 @@ export default function BasicModal({
       <Box sx={style}>
         <Typography id="modal-modal-title" variant="h6" component="h2">
           Exclusão de cliente
+          <CloseIcon onClick={handle} />
+
         </Typography>
-        <CloseIcon onClick={handle} />
         <Typography
           id="modal-modal-description"
           sx={{ mt: 2 }}
