@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactElement } from "react";
+import { ReactElement, useEffect } from "react";
 
 import ClienteDataService from "app/services/cliente.service";
 
@@ -18,7 +18,7 @@ const Page = async (): Promise<ReactElement> => {
       <Navigation />
       <NavigationCliente />
       {/* <Grid data={data} /> */}
-      <Table rows={data}/>
+      <Table />
     </SimpleContainer>
   );
 };

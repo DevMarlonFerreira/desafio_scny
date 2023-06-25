@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy } from "react";
+import { useState, useEffect, lazy, useRef, useCallback } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -12,21 +12,31 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 const ModalEditar = lazy(() => import("./ModalEditar"));
 const ModalDelete = lazy(() => import("./ModalDelete"));
 
-export default function BasicTable({ rows }: { rows: ICliente[] }) {
+import ClienteDataService from "app/services/cliente.service";
+
+export default function BasicTable() {
   const [showPut, setShowPut] = useState(false);
   const [showDel, setShowDel] = useState(false);
 
+  const [rows, setRows] = useState<ICliente[]>();
+
   const [cliente, setCliente] = useState<ICliente>();
 
-  const handlePut = () => {
-    setShowPut(!showPut);
+  const handlePut = useCallback(() => setShowPut(!showPut), [showPut]);
+
+  const handleDel = useCallback(() => setShowDel(!showDel), [showDel]);
+
+  const getData = async () => {
+    const { data } = await ClienteDataService.getAll();
+    return data;
   };
 
-  const handleDel = () => {
-    setShowDel(!showDel);
-  };
-
-  useEffect(() => {}, [cliente]);
+  useEffect(() => {
+    getData()
+    .then(data => {
+      setRows(data);
+    })
+  }, [handleDel, handlePut]);
 
   return (
     <TableContainer component={Paper}>
@@ -44,7 +54,7 @@ export default function BasicTable({ rows }: { rows: ICliente[] }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row: ICliente, key: number) => (
+          {rows?.map((row: ICliente, key: number) => (
             <TableRow
               key={key}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
