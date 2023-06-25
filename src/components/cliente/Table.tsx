@@ -14,17 +14,19 @@ const ModalDelete = lazy(() => import("./ModalDelete"));
 
 import ClienteDataService from "app/services/cliente.service";
 
-export default function BasicTable() {
+export default function BasicTable({ data }: { data: ICliente[]}) {
   const [showPut, setShowPut] = useState(false);
   const [showDel, setShowDel] = useState(false);
 
-  const [rows, setRows] = useState<ICliente[]>();
+  const [rows, setRows] = useState<ICliente[]>(data);
 
   const [cliente, setCliente] = useState<ICliente>();
 
   const handlePut = useCallback(() => setShowPut(!showPut), [showPut]);
 
-  const handleDel = useCallback(() => setShowDel(!showDel), [showDel]);
+  const handleDel = useCallback(() => {
+    setShowDel(!showDel);
+  }, [showDel]);
 
   const getData = async () => {
     const { data } = await ClienteDataService.getAll();
