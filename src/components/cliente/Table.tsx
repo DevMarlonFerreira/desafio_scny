@@ -15,7 +15,7 @@ import ClienteDataService from "app/services/cliente.service";
 const ModalEditar = lazy(() => import("./ModalEditar"));
 const ModalDelete = lazy(() => import("./ModalDelete"));
 
-export default function BasicTable({ data }: { data: ICliente[] | null}) {
+export default function BasicTable() {
   const [showPut, setShowPut] = useState(false);
   const [showDel, setShowDel] = useState(false);
 

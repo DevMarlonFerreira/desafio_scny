@@ -11,7 +11,7 @@ const Page = async (): Promise<ReactElement> => {
     <SimpleContainer>
       <Navigation />
       <NavigationCliente />
-      <Table data={null} />
+      <Table />
     </SimpleContainer>
   );
 };
