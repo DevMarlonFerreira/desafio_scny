@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect, lazy, useRef, useCallback } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -14,11 +16,13 @@ const ModalDelete = lazy(() => import("./ModalDelete"));
 
 import ClienteDataService from "app/services/cliente.service";
 
-export default function BasicTable({ data }: { data: ICliente[]}) {
+export default function BasicTable({ data }: { data: ICliente[] | null}) {
   const [showPut, setShowPut] = useState(false);
   const [showDel, setShowDel] = useState(false);
 
-  const [rows, setRows] = useState<ICliente[]>(data);
+  console.log(data)
+
+  const [rows, setRows] = useState<ICliente[]>();
 
   const [cliente, setCliente] = useState<ICliente>();
 
