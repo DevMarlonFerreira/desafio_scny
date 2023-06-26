@@ -12,7 +12,7 @@ import { IconButton } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CondutorDataService from "app/services/condutor.service";
 import { ICondutor } from "typings/ICondutor";
-// const ModalEditar = lazy(() => import("./ModalEditar"));
+const ModalEditar = lazy(() => import("./ModalEditar"));
 // const ModalDelete = lazy(() => import("./ModalDelete"));
 
 export default function BasicTable() {
@@ -63,7 +63,7 @@ export default function BasicTable() {
               <TableCell align="center">{row.numeroHabilitacao}</TableCell>
               <TableCell align="center">{row.catergoriaHabilitacao}</TableCell>
               <TableCell align="center">
-                {row.vencimentoHabilitacao.toString()}
+                {row.vencimentoHabilitacao.toISOString().split('T')[0]}
               </TableCell>
               <TableCell align="center">
                 {" "}
@@ -95,14 +95,14 @@ export default function BasicTable() {
           ))}
         </TableBody>
       </Table>
-      {/* {condutor && (
+      {condutor && (
         <ModalEditar
           condutor={condutor as ICondutor}
           handle={handlePut}
           open={showPut}
         />
       )}
-      {condutor && (
+      {/* {condutor && (
         <ModalDelete
           condutor={condutor as ICondutor}
           handle={handleDel}
