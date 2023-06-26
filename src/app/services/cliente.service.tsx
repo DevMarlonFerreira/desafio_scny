@@ -11,15 +11,15 @@ class ClienteDataService {
   }
 
   create(data: Omit<ICliente, "id">) {
-    return http.post<ICliente>("/Cliente", data);
+    return http.post("/Cliente", data);
   }
 
   update(data: ICliente, id: number) {
-    return http.put<ICliente>(`/Cliente/${id}`, data);
+    return http.put(`/Cliente/${id}`, data);
   }
 
   delete(id: number) {
-    return http.delete<string>(`/Cliente/${id}`, { data: { "id": id } });
+    return http.delete(`/Cliente/${id}`, { data: { "id": id } });
   }
 }
 
