@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, lazy, useRef, useCallback } from "react";
+import { useState, useEffect, lazy, useCallback } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -11,16 +11,13 @@ import Paper from "@mui/material/Paper";
 import { ICliente } from "typings/ICliente.d";
 import { IconButton } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import ClienteDataService from "app/services/cliente.service";
 const ModalEditar = lazy(() => import("./ModalEditar"));
 const ModalDelete = lazy(() => import("./ModalDelete"));
-
-import ClienteDataService from "app/services/cliente.service";
 
 export default function BasicTable({ data }: { data: ICliente[] | null}) {
   const [showPut, setShowPut] = useState(false);
   const [showDel, setShowDel] = useState(false);
-
-  console.log(data)
 
   const [rows, setRows] = useState<ICliente[]>();
 
