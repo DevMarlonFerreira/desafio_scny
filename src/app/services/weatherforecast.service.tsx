@@ -3,7 +3,7 @@ import { IWeatherforecast } from "typings/IWeatherforecast.d"
 
 class WeatherforecastDataService {
   getAll() {
-    return http.get<IWeatherforecast[]>("/api/v1/WeatherForecast");
+    return http.get<IWeatherforecast[]>("/WeatherForecast");
   }
 }
 
