@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
@@ -9,6 +10,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 export default function SimpleBottomNavigation() {
+  const router = useRouter();
   const [value, setValue] = useState(0);
 
   return (
@@ -21,14 +23,28 @@ export default function SimpleBottomNavigation() {
           setValue(newValue);
         }}
       >
-        <BottomNavigationAction label="Cliente" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Condutor" icon={<FavoriteIcon />} />
         <BottomNavigationAction
+          onClick={() => router.push("/cliente")}
+          label="Cliente"
+          icon={<RestoreIcon />}
+        />
+        <BottomNavigationAction
+          onClick={() => router.push("/condutor")}
+          label="Condutor"
+          icon={<FavoriteIcon />}
+        />
+        <BottomNavigationAction
+          onClick={() => router.push("/deslocamento")}
           label="Deslocamento"
           icon={<LocationOnIcon />}
         />
-        <BottomNavigationAction label="Veículo" icon={<LocationOnIcon />} />
         <BottomNavigationAction
+          onClick={() => router.push("/veiculo")}
+          label="Veículo"
+          icon={<LocationOnIcon />}
+        />
+        <BottomNavigationAction
+          onClick={() => router.push("/weatherforecast")}
           label="WeatherForecast"
           icon={<LocationOnIcon />}
         />
