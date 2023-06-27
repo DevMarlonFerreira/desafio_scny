@@ -11,11 +11,11 @@ class DeslocamentoDataService {
   }
 
   create(data: Omit<IDeslocamento, "id">) {
-    return http.post("/Deslocamento", data);
+    return http.post("/Deslocamento/IniciarDeslocamento", data);
   }
 
   update(data: IDeslocamento, id: number) {
-    return http.put(`/Deslocamento/${id}`, data);
+    return http.put(`/Deslocamento/${id}/EncerrarDeslocamento`, data);
   }
 
   delete(id: number) {
