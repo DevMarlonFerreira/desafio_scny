@@ -63,7 +63,7 @@ export default function BasicTable() {
               <TableCell align="center">{row.numeroHabilitacao}</TableCell>
               <TableCell align="center">{row.catergoriaHabilitacao}</TableCell>
               <TableCell align="center">
-                {row.vencimentoHabilitacao.toISOString().split('T')[0]}
+                {(row.vencimentoHabilitacao.toString().split("T")[0])}
               </TableCell>
               <TableCell align="center">
                 {" "}

@@ -88,7 +88,7 @@ export default function BasicModal({
             fullWidth
             value={catergoriaHabilitacao}
           />
-          {/* <Calendar /> */}
+          <Calendar date={vencimentoHabilitacao}/>
           {/* <TextField
             label="Vencimento da habilitação"
             onChange={(e) => setVencimentoHabilitacao(e.target.value)}
