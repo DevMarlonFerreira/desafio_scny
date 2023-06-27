@@ -12,7 +12,6 @@ import { ICondutor } from "typings/ICondutor";
 
 import Calendar from "../Calendar";
 
-
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -34,7 +33,6 @@ export default function BasicModal({
   handle: () => void;
   open: boolean;
 }) {
-  const [nome, setNome] = useState<ICondutor["nome"]>(condutor.nome);
   const [catergoriaHabilitacao, setCatergoriaHabilitacao] = useState<
     ICondutor["catergoriaHabilitacao"]
   >(condutor.catergoriaHabilitacao);
@@ -43,21 +41,26 @@ export default function BasicModal({
   >(condutor.vencimentoHabilitacao);
 
   useEffect(() => {
-    setNome(condutor.nome);
     setCatergoriaHabilitacao(condutor.catergoriaHabilitacao);
     setVencimentoHabilitacao(condutor.vencimentoHabilitacao);
+    console.log(condutor.vencimentoHabilitacao);
   }, [condutor]);
 
   const execute = async () => {
     const body = {
       id: condutor.id,
-      nome,
       catergoriaHabilitacao,
       vencimentoHabilitacao,
     };
 
-    await CondutorDataService.update(body, condutor.id);
+    await CondutorDataService.update(body, condutor.id).catch((error) => {
+      console.log(error);
+    });
     handle();
+  };
+
+  const callBackCalendar = (date: Date) => {
+    setVencimentoHabilitacao(date.toISOString());
   };
 
   return (
@@ -88,18 +91,7 @@ export default function BasicModal({
             fullWidth
             value={catergoriaHabilitacao}
           />
-          <Calendar date={vencimentoHabilitacao}/>
-          {/* <TextField
-            label="Vencimento da habilitação"
-            onChange={(e) => setVencimentoHabilitacao(e.target.value)}
-            required
-            variant="outlined"
-            color="secondary"
-            type="date"
-            sx={{ mb: 3 }}
-            fullWidth
-            value={vencimentoHabilitacao}
-          /> */}
+          <Calendar date={vencimentoHabilitacao} callback={callBackCalendar} />
         </Typography>
         <Button onClick={execute} aria-label="editar cliente">
           Salvar

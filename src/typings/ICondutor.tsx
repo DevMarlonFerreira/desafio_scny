@@ -3,6 +3,6 @@ export interface ICondutor {
     nome?: string;
     numeroHabilitacao?: string;
     catergoriaHabilitacao?: string;
-    vencimentoHabilitacao: Date;
+    vencimentoHabilitacao: Date | string;
   }
   
