@@ -33,24 +33,26 @@ export default function BasicModal({
   handle: () => void;
   open: boolean;
 }) {
-  const [catergoriaHabilitacao, setCatergoriaHabilitacao] = useState<
-    ICondutor["catergoriaHabilitacao"]
-  >(condutor.catergoriaHabilitacao);
+  const [categoriaHabilitacao, setCategoriaHabilitacao] = useState<
+    ICondutor["categoriaHabilitacao"]
+  >(condutor.categoriaHabilitacao);
   const [vencimentoHabilitacao, setVencimentoHabilitacao] = useState<
     ICondutor["vencimentoHabilitacao"]
   >(condutor.vencimentoHabilitacao);
 
   useEffect(() => {
-    setCatergoriaHabilitacao(condutor.catergoriaHabilitacao);
+    setCategoriaHabilitacao(condutor.categoriaHabilitacao);
     setVencimentoHabilitacao(condutor.vencimentoHabilitacao);
   }, [condutor]);
 
   const execute = async () => {
     const body = {
       id: condutor.id,
-      catergoriaHabilitacao,
+      categoriaHabilitacao,
       vencimentoHabilitacao,
     };
+
+    console.log(body)
 
     await CondutorDataService.update(body, condutor.id).catch((error) => {
       console.log(error);
@@ -81,14 +83,14 @@ export default function BasicModal({
         >
           <TextField
             label="Catergoria da habilitação"
-            onChange={(e) => setCatergoriaHabilitacao(e.target.value)}
+            onChange={(e) => setCategoriaHabilitacao(e.target.value)}
             required
             variant="outlined"
             color="secondary"
             type="text"
             sx={{ mb: 3 }}
             fullWidth
-            value={catergoriaHabilitacao}
+            value={categoriaHabilitacao}
           />
           <Calendar date={vencimentoHabilitacao} callback={callBackCalendar} />
         </Typography>
