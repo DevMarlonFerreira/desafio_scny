@@ -15,7 +15,6 @@ export default function DateCalendarValue({
   const [value, setValue] = useState<Dayjs | null>(dayjs("2022-04-17"));
 
   useEffect(() => {
-    console.log(dayjs(date));
     if (typeof date === "object") {
       setValue(dayjs(date));
     } else {
