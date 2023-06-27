@@ -13,7 +13,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import CondutorDataService from "app/services/condutor.service";
 import { ICondutor } from "typings/ICondutor";
 const ModalEditar = lazy(() => import("./ModalEditar"));
-// const ModalDelete = lazy(() => import("./ModalDelete"));
+const ModalDelete = lazy(() => import("./ModalDelete"));
 
 export default function BasicTable() {
   const [showPut, setShowPut] = useState(false);
@@ -102,13 +102,13 @@ export default function BasicTable() {
           open={showPut}
         />
       )}
-      {/* {condutor && (
+      {condutor && (
         <ModalDelete
           condutor={condutor as ICondutor}
           handle={handleDel}
           open={showDel}
         />
-      )} */}
+      )}
     </TableContainer>
   );
 }

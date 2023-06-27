@@ -43,7 +43,6 @@ export default function BasicModal({
   useEffect(() => {
     setCatergoriaHabilitacao(condutor.catergoriaHabilitacao);
     setVencimentoHabilitacao(condutor.vencimentoHabilitacao);
-    console.log(condutor.vencimentoHabilitacao);
   }, [condutor]);
 
   const execute = async () => {
