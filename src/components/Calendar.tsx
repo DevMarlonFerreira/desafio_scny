@@ -20,18 +20,14 @@ export default function DateCalendarValue({ date }: any | Date) {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DemoContainer components={["DateCalendar", "DateCalendar"]}>
+      <DemoContainer components={["DateCalendar"]}>
         {/* <DemoItem label="Uncontrolled calendar">
           <DateCalendar defaultValue={dayjs("2022-04-17")} />
         </DemoItem> */}
-        <DemoItem label="Controlled calendar">
-          <DemoItem label="Controlled calendar">
-            <DateCalendar
-              value={dayjs(format)}
-              onChange={(newValue) => setValue(newValue)}
-            />
-          </DemoItem>
-        </DemoItem>
+        <DateCalendar
+          value={dayjs(format)}
+          onChange={(newValue) => setValue(newValue)}
+        />
       </DemoContainer>
     </LocalizationProvider>
   );
