@@ -31,7 +31,6 @@ export default function BasicTable() {
 
   const getData = async () => {
     const { data } = await DeslocamentoDataService.getAll();
-    console.log(data);
     return data;
   };
 

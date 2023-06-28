@@ -43,11 +43,6 @@ export default function BasicModal({
     deslocamento.observacao
   );
 
-  // useEffect(() => {
-  //   setCategoriaHabilitacao(deslocamento.categoriaHabilitacao);
-  //   setVencimentoHabilitacao(deslocamento.vencimentoHabilitacao);
-  // }, [deslocamento]);
-
   const execute = async () => {
     const body = {
       id: deslocamento.id,
@@ -55,8 +50,6 @@ export default function BasicModal({
       fimDeslocamento,
       observacao,
     };
-
-    console.log(body);
 
     await DeslocamentoDataService.update(body, deslocamento.id).catch(
       (error) => {
@@ -67,7 +60,6 @@ export default function BasicModal({
   };
 
   const callBackCalendar = (date: Date) => {
-    console.log(date);
     setFimDeslocamento(date.toISOString());
   };
 

@@ -59,8 +59,6 @@ export default function BasicModal({
       idCliente
     };
 
-    console.log(body);
-
     await DeslocamentoDataService.create(body).catch(
       (error) => {
         console.log(error);
@@ -70,7 +68,6 @@ export default function BasicModal({
   };
 
   const callBackCalendar = (date: Date) => {
-    console.log(date);
     setInicioDeslocamento(date.toISOString());
   };
 

@@ -43,10 +43,8 @@ export default function NewCondutor({
       nome,
       numeroHabilitacao,
       categoriaHabilitacao,
-      vencimentoHabilitacao
+      vencimentoHabilitacao,
     };
-    console.log(body)
-
     CondutorDataService.create(body).catch((error) => {
       console.log(error);
     });
@@ -54,7 +52,6 @@ export default function NewCondutor({
   };
 
   const callBackCalendar = (date: Date) => {
-    console.log(date);
     setVencimentoHabilitacao(date.toISOString());
   };
 

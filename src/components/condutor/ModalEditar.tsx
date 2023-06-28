@@ -52,8 +52,6 @@ export default function BasicModal({
       vencimentoHabilitacao,
     };
 
-    console.log(body)
-
     await CondutorDataService.update(body, condutor.id).catch((error) => {
       console.log(error);
     });
