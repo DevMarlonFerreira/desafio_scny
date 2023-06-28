@@ -8,7 +8,7 @@ import Table from "components/cliente/Table";
 const Page = async (): Promise<ReactElement> => {
   return (
     <SimpleContainer>
-      <Navigation />
+      <Navigation index={0}/>
       <NavigationCliente />
       <Table />
     </SimpleContainer>

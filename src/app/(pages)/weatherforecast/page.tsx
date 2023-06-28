@@ -7,7 +7,7 @@ import Table from "components/weatherforecast/Table";
 const Page = async (): Promise<ReactElement> => {
   return (
     <SimpleContainer>
-      <Navigation />
+      <Navigation index={4}/>
       <Table />
     </SimpleContainer>
   );

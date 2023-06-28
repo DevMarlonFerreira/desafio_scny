@@ -8,7 +8,7 @@ import Table from "components/veiculo/Table";
 const Page = async (): Promise<ReactElement> => {
   return (
     <SimpleContainer>
-      <Navigation />
+      <Navigation index={3}/>
       <NavigationVeiculo />
       <Table />
     </SimpleContainer>

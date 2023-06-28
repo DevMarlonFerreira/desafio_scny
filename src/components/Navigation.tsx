@@ -7,18 +7,15 @@ import RestoreIcon from "@mui/icons-material/Restore";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
-export default function SimpleBottomNavigation() {
+export default function SimpleBottomNavigation({index}: {index: number}) {
   const router = useRouter();
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(index);
 
   return (
     <Box>
       <BottomNavigation
         showLabels
         value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
       >
         <BottomNavigationAction
           onClick={() => router.push("/cliente")}

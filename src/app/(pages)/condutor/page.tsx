@@ -8,7 +8,7 @@ import Table from "components/condutor/Table";
 const Page = async (): Promise<ReactElement> => {
   return (
     <SimpleContainer>
-      <Navigation />
+      <Navigation index={1}/>
       <NavigationCondutor />
       <Table />
     </SimpleContainer>

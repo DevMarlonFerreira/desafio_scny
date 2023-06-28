@@ -8,7 +8,7 @@ import Table from "components/deslocamento/Table";
 const Page = async (): Promise<ReactElement> => {
   return (
     <SimpleContainer>
-      <Navigation />
+      <Navigation index={2}/>
       <NavigationDeslocamento />
       <Table />
     </SimpleContainer>
