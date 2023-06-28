@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { Box, BottomNavigation, BottomNavigationAction } from "@mui/material";
-import RestoreIcon from "@mui/icons-material/Restore";
-import ModalNewClient from "./ModalNew";
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import ModalNew from "./ModalNew";
 
 export default function NavigationCliente() {
   const [value, setValue] = useState(0);
@@ -22,10 +22,10 @@ export default function NavigationCliente() {
         <BottomNavigationAction
           onClick={newModal}
           label="Cadastro de cliente"
-          icon={<RestoreIcon />}
+          icon={<PersonAddIcon />}
         />
       </BottomNavigation>
-      <ModalNewClient handle={newModal} open={open} />
+      <ModalNew handle={newModal} open={open} />
     </Box>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Box, BottomNavigation, BottomNavigationAction } from "@mui/material";
-import RestoreIcon from "@mui/icons-material/Restore";
+import AddIcon from '@mui/icons-material/Add';
 import ModalNew from "./ModalNew";
 
 export default function Navigation() {
@@ -22,7 +22,7 @@ export default function Navigation() {
         <BottomNavigationAction
           onClick={newModal}
           label="Cadastro de veículo"
-          icon={<RestoreIcon />}
+          icon={<AddIcon />}
         />
       </BottomNavigation>
       <ModalNew handle={newModal} open={open} />

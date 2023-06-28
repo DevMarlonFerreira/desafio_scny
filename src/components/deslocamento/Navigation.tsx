@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Box, BottomNavigation, BottomNavigationAction } from "@mui/material";
-import RestoreIcon from "@mui/icons-material/Restore";
+import AddIcon from '@mui/icons-material/Add';
 import ModalNew from "./ModalNew";
 
 export default function NavigationCliente() {
@@ -22,7 +22,7 @@ export default function NavigationCliente() {
         <BottomNavigationAction
           onClick={newModal}
           label="Cadastro de deslocamento"
-          icon={<RestoreIcon />}
+          icon={<AddIcon />}
         />
       </BottomNavigation>
       <ModalNew handle={newModal} open={open} />

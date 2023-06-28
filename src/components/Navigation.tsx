@@ -7,6 +7,14 @@ import RestoreIcon from "@mui/icons-material/Restore";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
+import PersonIcon from '@mui/icons-material/Person';
+import HailIcon from '@mui/icons-material/Hail';
+import CarCrashIcon from '@mui/icons-material/CarCrash';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import EmojiTransportationIcon from '@mui/icons-material/EmojiTransportation';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import NightsStayIcon from '@mui/icons-material/NightsStay';
+
 export default function SimpleBottomNavigation({index}: {index: number}) {
   const router = useRouter();
   const [value, setValue] = useState(index);
@@ -20,27 +28,27 @@ export default function SimpleBottomNavigation({index}: {index: number}) {
         <BottomNavigationAction
           onClick={() => router.push("/cliente")}
           label="Cliente"
-          icon={<RestoreIcon />}
+          icon={<HailIcon />}
         />
         <BottomNavigationAction
           onClick={() => router.push("/condutor")}
           label="Condutor"
-          icon={<FavoriteIcon />}
+          icon={<PersonIcon />}
         />
         <BottomNavigationAction
           onClick={() => router.push("/deslocamento")}
           label="Deslocamento"
-          icon={<LocationOnIcon />}
+          icon={<EmojiTransportationIcon />}
         />
         <BottomNavigationAction
           onClick={() => router.push("/veiculo")}
           label="Veículo"
-          icon={<LocationOnIcon />}
+          icon={<DirectionsCarIcon />}
         />
         <BottomNavigationAction
           onClick={() => router.push("/weatherforecast")}
           label="WeatherForecast"
-          icon={<LocationOnIcon />}
+          icon={<NightsStayIcon />}
         />
       </BottomNavigation>
     </Box>
