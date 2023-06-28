@@ -38,7 +38,7 @@ export default function BasicModal({
   );
   const [fimDeslocamento, setFimDeslocamento] = useState<
     IDeslocamento["fimDeslocamento"]
-  >(deslocamento.fimDeslocamento);
+  >(deslocamento.inicioDeslocamento);
   const [observacao, setObservacao] = useState<IDeslocamento["observacao"]>(
     deslocamento.observacao
   );
@@ -66,9 +66,10 @@ export default function BasicModal({
     handle();
   };
 
-  // const callBackCalendar = (date: Date) => {
-  //   setVencimentoHabilitacao(date.toISOString());
-  // };
+  const callBackCalendar = (date: Date) => {
+    console.log(date);
+    setFimDeslocamento(date.toISOString());
+  };
 
   return (
     <Modal
@@ -98,7 +99,7 @@ export default function BasicModal({
             fullWidth
             value={kmFinal}
           />
-          {/* <Calendar date={vencimentoHabilitacao} callback={callBackCalendar} /> */}
+          <Calendar date={fimDeslocamento} callback={callBackCalendar} />
           <TextField
             label="Observação"
             onChange={(e) => setObservacao(e.target.value)}
