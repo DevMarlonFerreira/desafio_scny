@@ -12,7 +12,6 @@ import { TextField } from "@mui/material";
 import { ICliente } from "typings/ICliente.d";
 import { IconButton } from "@mui/material";
 import Button from "@mui/material/Button";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import ClienteDataService from "app/services/cliente.service";
 const ModalEditar = lazy(() => import("./ModalEditar"));
 const ModalDelete = lazy(() => import("./ModalDelete"));
@@ -108,7 +107,6 @@ export default function BasicTable() {
                   }}
                 >
                   Editar
-                  <FavoriteIcon />
                 </IconButton>
               </TableCell>
               <TableCell align="center">
@@ -121,7 +119,6 @@ export default function BasicTable() {
                   }}
                 >
                   Excluir
-                  <FavoriteIcon />
                 </IconButton>
               </TableCell>
             </TableRow>

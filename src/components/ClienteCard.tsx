@@ -7,8 +7,6 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 import { ICliente } from "typings/ICliente.d";
@@ -51,11 +49,9 @@ export default function ClienteCard({ cliente }: { cliente: ICliente }) {
       <CardActions disableSpacing>
         <IconButton aria-label="aeditar" onClick={handlePut}>
           Editar
-          <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="excluir" onClick={handleDelete}>
           Excluir
-          <ShareIcon />
         </IconButton>
       </CardActions>
       <ModalDelete cliente={cliente} handle={handleDelete} open={open}/>

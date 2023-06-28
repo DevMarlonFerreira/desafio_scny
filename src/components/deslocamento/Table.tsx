@@ -9,9 +9,11 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { IconButton } from "@mui/material";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import DeslocamentoDataService from "app/services/deslocamento.service";
 import { IDeslocamento } from "typings/IDeslocamento.d";
+import Button from "@mui/material/Button";
+import { TextField } from "@mui/material";
+
 const ModalEditar = lazy(() => import("./ModalEditar"));
 const ModalDelete = lazy(() => import("./ModalDelete"));
 
@@ -22,6 +24,8 @@ export default function BasicTable() {
   const [rows, setRows] = useState<IDeslocamento[]>();
 
   const [deslocamento, setDeslocamento] = useState<IDeslocamento>();
+
+  const [filter, setFilter] = useState<number>(0);
 
   const handlePut = useCallback(() => setShowPut(!showPut), [showPut]);
 
@@ -40,8 +44,32 @@ export default function BasicTable() {
     });
   }, [handleDel, handlePut]);
 
+  const handleDataFilter = useCallback(async () => {
+    const { data } = await DeslocamentoDataService.get(filter);
+    setRows([data]);
+  }, [filter]);
+
+  const handleData = useCallback(async () => {
+    getData().then((data) => {
+      setRows(data);
+    });
+  }, []);
+
   return (
     <TableContainer component={Paper}>
+      <TextField
+        id="standard-basic"
+        label="Pesquisar cliente"
+        variant="standard"
+        onChange={(e) => setFilter(parseInt(e.target.value))}
+      />
+
+      <Button variant="contained" onClick={(e) => handleDataFilter()}>
+        Pesquisar
+      </Button>
+      <Button variant="contained" onClick={(e) => handleData()}>
+        Exibir todos
+      </Button>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -79,9 +107,7 @@ export default function BasicTable() {
               <TableCell align="center">{row.idCondutor}</TableCell>
               <TableCell align="center">{row.idVeiculo}</TableCell>
               <TableCell align="center">{row.idCliente}</TableCell>
-
               <TableCell align="center">
-                {" "}
                 <IconButton
                   aria-label="editar"
                   onClick={() => {
@@ -90,11 +116,9 @@ export default function BasicTable() {
                   }}
                 >
                   Editar
-                  <FavoriteIcon />
                 </IconButton>
               </TableCell>
               <TableCell align="center">
-                {" "}
                 <IconButton
                   aria-label="excluir"
                   onClick={() => {
@@ -103,7 +127,6 @@ export default function BasicTable() {
                   }}
                 >
                   Excluir
-                  <FavoriteIcon />
                 </IconButton>
               </TableCell>
             </TableRow>
