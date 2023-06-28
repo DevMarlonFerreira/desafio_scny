@@ -1,15 +1,7 @@
 import { useState, useEffect } from "react";
-
+import {Box, Button, Typography, Modal, TextField} from "@mui/material";
 import CondutorDataService from "app/services/condutor.service";
-
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-import { TextField } from "@mui/material";
-
 import { ICondutor } from "typings/ICondutor";
-
 import Calendar from "../Calendar";
 
 const style = {

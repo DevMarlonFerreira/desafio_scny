@@ -1,11 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import { Box, BottomNavigation, BottomNavigationAction } from "@mui/material";
 import RestoreIcon from "@mui/icons-material/Restore";
-
 import ModalNew from "./ModalNew";
 
 export default function NavigationCliente() {
@@ -14,7 +11,6 @@ export default function NavigationCliente() {
   const newModal = () => setOpen(!open);
 
   return (
-    // <Box sx={{ width: 500 }}>
     <Box>
       <BottomNavigation
         showLabels

@@ -1,14 +1,8 @@
 import { useEffect, useState } from "react";
-
-import DeslocamentoDataService from "app/services/deslocamento.service";
-
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-
-import { IDeslocamento } from "typings/IDeslocamento.d";
+import {Box, Button, Typography, Modal} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import DeslocamentoDataService from "app/services/deslocamento.service";
+import { IDeslocamento } from "typings/IDeslocamento.d";
 
 const style = {
   position: "absolute" as "absolute",

@@ -1,15 +1,7 @@
-import { useState, useEffect } from "react";
-
+import { useState } from "react";
+import {Box, Button, Typography, Modal, TextField} from "@mui/material";
 import DeslocamentoDataService from "app/services/deslocamento.service";
-
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-import { TextField } from "@mui/material";
-
 import { IDeslocamento } from "typings/IDeslocamento.d";
-
 import Calendar from "../Calendar";
 
 const style = {

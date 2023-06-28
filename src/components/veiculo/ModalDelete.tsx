@@ -1,14 +1,8 @@
 import { useEffect, useState } from "react";
-
-import VeiculoDataService from "app/services/veiculo.service";
-
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-
-import { IVeiculo } from "typings/IVeiculo.d";
+import {Box, Button, Typography, Modal} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import VeiculoDataService from "app/services/veiculo.service";
+import { IVeiculo } from "typings/IVeiculo.d";
 
 const style = {
   position: "absolute" as "absolute",

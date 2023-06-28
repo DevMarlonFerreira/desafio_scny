@@ -1,4 +1,3 @@
-
 import { ReactElement } from "react";
 
 import SimpleContainer from "components/SimpleContainer";
@@ -15,5 +14,3 @@ const Page = async (): Promise<ReactElement> => {
 };
 
 export default Page;
-
-// { children }: { children: React.ReactElement }

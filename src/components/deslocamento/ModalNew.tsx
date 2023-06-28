@@ -1,15 +1,7 @@
-import { useState, useEffect } from "react";
-
+import { useState } from "react";
+import { Box, Button, Typography, Modal, TextField } from "@mui/material";
 import DeslocamentoDataService from "app/services/deslocamento.service";
-
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-import { TextField } from "@mui/material";
-
 import { IDeslocamento } from "typings/IDeslocamento.d";
-
 import Calendar from "../Calendar";
 
 const style = {
@@ -42,11 +34,6 @@ export default function BasicModal({
   const [idVeiculo, setIdVeiculo] = useState<IDeslocamento["idVeiculo"]>();
   const [idCliente, setIdCliente] = useState<IDeslocamento["idCliente"]>();
 
-  // useEffect(() => {
-  //   setCategoriaHabilitacao(deslocamento.categoriaHabilitacao);
-  //   setVencimentoHabilitacao(deslocamento.vencimentoHabilitacao);
-  // }, [deslocamento]);
-
   const execute = async () => {
     const body = {
       kmInicial,
@@ -56,14 +43,12 @@ export default function BasicModal({
       observacao,
       idCondutor,
       idVeiculo,
-      idCliente
+      idCliente,
     };
 
-    await DeslocamentoDataService.create(body).catch(
-      (error) => {
-        console.log(error);
-      }
-    );
+    await DeslocamentoDataService.create(body).catch((error) => {
+      console.log(error);
+    });
     handle();
   };
 

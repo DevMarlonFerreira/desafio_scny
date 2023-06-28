@@ -1,19 +1,9 @@
 "use client";
 
 import { useState, useEffect, lazy, useCallback } from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import { IconButton } from "@mui/material";
+import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, TextField, Button} from "@mui/material";
 import DeslocamentoDataService from "app/services/deslocamento.service";
 import { IDeslocamento } from "typings/IDeslocamento.d";
-import Button from "@mui/material/Button";
-import { TextField } from "@mui/material";
-
 const ModalEditar = lazy(() => import("./ModalEditar"));
 const ModalDelete = lazy(() => import("./ModalDelete"));
 

@@ -1,14 +1,8 @@
 import { useEffect, useState } from "react";
-
-import CondutorDataService from "app/services/condutor.service";
-
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-
-import { ICondutor } from "typings/ICondutor";
+import {Box, Button, Typography, Modal} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import CondutorDataService from "app/services/condutor.service";
+import { ICondutor } from "typings/ICondutor";
 
 const style = {
   position: "absolute" as "absolute",

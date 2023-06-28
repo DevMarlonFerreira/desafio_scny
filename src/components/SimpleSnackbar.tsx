@@ -1,10 +1,8 @@
-"use client"
+"use client";
 
-import { useState, Fragment, SyntheticEvent } from 'react';
-import Button from '@mui/material/Button';
-import Snackbar from '@mui/material/Snackbar';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+import { useState, Fragment } from "react";
+import { Button, Snackbar, IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 export default function SimpleSnackbar() {
   const [open, setOpen] = useState(false);
@@ -13,11 +11,7 @@ export default function SimpleSnackbar() {
     setOpen(true);
   };
 
-  const handleClose = (event: SyntheticEvent | Event, reason?: string) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
+  const handleClose = () => {
     setOpen(false);
   };
 
