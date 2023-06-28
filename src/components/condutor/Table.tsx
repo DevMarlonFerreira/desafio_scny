@@ -94,6 +94,7 @@ export default function BasicTable() {
               <TableCell align="center">
                 {" "}
                 <IconButton
+                  size="small"
                   aria-label="editar"
                   onClick={() => {
                     setCondutor(row);
@@ -105,6 +106,7 @@ export default function BasicTable() {
               </TableCell>
               <TableCell align="center">
                 <IconButton
+                  size="small"
                   aria-label="excluir"
                   onClick={() => {
                     setCondutor(row);

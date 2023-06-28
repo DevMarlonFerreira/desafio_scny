@@ -69,7 +69,7 @@ export default function BasicTable() {
       <Button variant="contained" onClick={(e) => handleData()}>
         Exibir todos
       </Button>
-      <Table sx={{ minWidth: 650 }} aria-label="Tabela cliente">
+      <Table sx={{ minWidth: 650 }} size={"small"} aria-label="Tabela cliente">
         <TableHead>
           <TableRow>
             <TableCell align="center">Nome</TableCell>
@@ -102,6 +102,7 @@ export default function BasicTable() {
               <TableCell align="center">
                 {" "}
                 <IconButton
+                  size="small"
                   aria-label="editar"
                   onClick={() => {
                     setCliente(row);
@@ -112,8 +113,8 @@ export default function BasicTable() {
                 </IconButton>
               </TableCell>
               <TableCell align="center">
-                {" "}
                 <IconButton
+                  size="small"
                   aria-label="excluir"
                   onClick={() => {
                     setCliente(row);

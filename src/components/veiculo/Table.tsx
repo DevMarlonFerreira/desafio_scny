@@ -1,7 +1,18 @@
 "use client";
 
 import { useState, useEffect, lazy, useCallback } from "react";
-import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, TextField, Button} from "@mui/material";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  IconButton,
+  TextField,
+  Button,
+} from "@mui/material";
 import VeiculoDataService from "app/services/veiculo.service";
 import { IVeiculo } from "typings/IVeiculo.d";
 const ModalEditar = lazy(() => import("./ModalEditar"));
@@ -82,6 +93,7 @@ export default function BasicTable() {
               <TableCell align="center">
                 {" "}
                 <IconButton
+                  size="small"
                   aria-label="editar"
                   onClick={() => {
                     setVeiculo(row);
@@ -94,6 +106,7 @@ export default function BasicTable() {
               <TableCell align="center">
                 {" "}
                 <IconButton
+                  size="small"
                   aria-label="excluir"
                   onClick={() => {
                     setVeiculo(row);

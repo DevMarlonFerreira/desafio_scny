@@ -1,7 +1,18 @@
 "use client";
 
 import { useState, useEffect, lazy, useCallback } from "react";
-import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, TextField, Button} from "@mui/material";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  IconButton,
+  TextField,
+  Button,
+} from "@mui/material";
 import DeslocamentoDataService from "app/services/deslocamento.service";
 import { IDeslocamento } from "typings/IDeslocamento.d";
 const ModalEditar = lazy(() => import("./ModalEditar"));
@@ -96,6 +107,7 @@ export default function BasicTable() {
               <TableCell align="center">{row.idCliente}</TableCell>
               <TableCell align="center">
                 <IconButton
+                  size="small"
                   aria-label="editar"
                   onClick={() => {
                     setDeslocamento(row);
@@ -107,6 +119,7 @@ export default function BasicTable() {
               </TableCell>
               <TableCell align="center">
                 <IconButton
+                  size="small"
                   aria-label="excluir"
                   onClick={() => {
                     setDeslocamento(row);
