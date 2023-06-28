@@ -1,11 +1,9 @@
-import { ReactElement } from "react";
-
 import SimpleContainer from "components/SimpleContainer";
 import Navigation from "components/Navigation";
 import NavigationDeslocamento from "components/deslocamento/Navigation";
 import Table from "components/deslocamento/Table";
 
-const Page = async (): Promise<ReactElement> => {
+const Page = () => {
   return (
     <SimpleContainer>
       <Navigation index={2}/>
