@@ -7,13 +7,11 @@ import Navigation from "components/Navigation";
 const Page = () => {
   return (
     <SimpleContainer>
-      <Typography
-        id="title"
-        variant="h1"
-        component="h2"
-        textAlign="center"
-      >
-        Cadastro de veículo
+      <Typography id="title" variant="h4" textAlign="center">
+        Desafio de Desenvolvimento Front-End
+      </Typography>
+      <Typography id="sub-title" variant="h5" textAlign="center">
+        Aplicação de Deslocamento
       </Typography>
       <Navigation index={7} />
     </SimpleContainer>

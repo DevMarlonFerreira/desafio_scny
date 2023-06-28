@@ -76,7 +76,7 @@ export default function BasicTable() {
               <TableCell component="th" scope="row">
                 {row.placa}
               </TableCell>
-              <TableCell align="center">{row.id}</TableCell>
+              <TableCell align="center">{row.marcaModelo}</TableCell>
               <TableCell align="center">{row.anoFabricacao}</TableCell>
               <TableCell align="center">{row.kmAtual}</TableCell>
               <TableCell align="center">

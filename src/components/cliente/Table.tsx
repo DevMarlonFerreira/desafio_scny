@@ -1,7 +1,18 @@
 "use client";
 
 import { useState, useEffect, lazy, useCallback } from "react";
-import {Table,TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TextField, Button, IconButton } from "@mui/material";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  TextField,
+  Button,
+  IconButton,
+} from "@mui/material";
 import ClienteDataService from "app/services/cliente.service";
 import { ICliente } from "typings/ICliente.d";
 const ModalEditar = lazy(() => import("./ModalEditar"));
@@ -81,7 +92,7 @@ export default function BasicTable() {
                 {row.nome}
               </TableCell>
               {/* <TableCell align="center">{row.tipoDocumento}</TableCell> */}
-              <TableCell align="center">{row.id}</TableCell>
+              <TableCell align="center">{row.nome}</TableCell>
               <TableCell align="center">{row.numeroDocumento}</TableCell>
               <TableCell align="center">{row.uf}</TableCell>
               <TableCell align="center">{row.cidade}</TableCell>
