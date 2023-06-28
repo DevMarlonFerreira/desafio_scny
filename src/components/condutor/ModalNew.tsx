@@ -99,7 +99,7 @@ export default function NewCondutor({
             value={categoriaHabilitacao}
           />
           <Calendar date={vencimentoHabilitacao} callback={callBackCalendar} />
-          <Button onClick={execute} aria-label="cadastrar cliente">
+          <Button onClick={execute} aria-label="cadastrar condutor">
             Cadastrar
           </Button>
         </Box>

@@ -5,7 +5,7 @@ import { Box, BottomNavigation, BottomNavigationAction } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import ModalNew from "./ModalNew";
 
-export default function NavigationCliente() {
+export default function Navigation() {
   const [value, setValue] = useState(0);
   const [open, setOpen] = useState(false);
   const newModal = () => setOpen(!open);

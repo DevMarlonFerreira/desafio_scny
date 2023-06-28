@@ -12,9 +12,7 @@ export default function BasicTable() {
   const [showDel, setShowDel] = useState(false);
 
   const [rows, setRows] = useState<ICondutor[]>();
-
   const [condutor, setCondutor] = useState<ICondutor>();
-
   const [filter, setFilter] = useState<number>(0);
 
   const handlePut = useCallback(() => setShowPut(!showPut), [showPut]);
@@ -50,7 +48,7 @@ export default function BasicTable() {
     <TableContainer component={Paper}>
       <TextField
         id="standard-basic"
-        label="Pesquisar cliente"
+        label="Pesquisar condutor"
         variant="standard"
         onChange={(e) => setFilter(parseInt(e.target.value))}
       />

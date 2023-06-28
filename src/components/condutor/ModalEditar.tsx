@@ -84,7 +84,7 @@ export default function BasicModal({
           />
           <Calendar date={vencimentoHabilitacao} callback={callBackCalendar} />
         </Typography>
-        <Button onClick={execute} aria-label="editar cliente">
+        <Button onClick={execute} aria-label="editar condutor">
           Salvar
         </Button>
       </Box>

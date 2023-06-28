@@ -10,9 +10,9 @@ const ModalDelete = lazy(() => import("./ModalDelete"));
 export default function BasicTable() {
   const [showPut, setShowPut] = useState(false);
   const [showDel, setShowDel] = useState(false);
+  
   const [rows, setRows] = useState<ICliente[]>();
   const [cliente, setCliente] = useState<ICliente>();
-
   const [filter, setFilter] = useState<number>(0);
 
   const handlePut = useCallback(() => setShowPut(!showPut), [showPut]);
