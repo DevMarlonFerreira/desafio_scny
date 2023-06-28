@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {Box, Button, Typography, Modal} from "@mui/material";
+import { Box, Button, Typography, Modal } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import DeslocamentoDataService from "app/services/deslocamento.service";
 import { IDeslocamento } from "typings/IDeslocamento.d";
@@ -15,7 +15,9 @@ export default function BasicModal({
   open: boolean;
 }) {
   const [id, setId] = useState<IDeslocamento["id"]>(deslocamento.id);
-  const [checkList, setCheckList] = useState<IDeslocamento["checkList"]>(deslocamento.checkList);
+  const [checkList, setCheckList] = useState<IDeslocamento["checkList"]>(
+    deslocamento.checkList
+  );
 
   useEffect(() => {
     setId(deslocamento.id);
@@ -26,7 +28,7 @@ export default function BasicModal({
     await DeslocamentoDataService.delete(id);
     handle();
   };
-  
+
   return (
     <Modal
       component={"div"}
@@ -36,15 +38,14 @@ export default function BasicModal({
       aria-describedby="modal-description"
     >
       <Box sx={style}>
+        <CloseIcon
+          onClick={handle}
+          style={{ float: "right", cursor: "pointer" }}
+        />
         <Typography id="modal-title" variant="h6" component="h2">
           Fim de deslocamento
-          <CloseIcon onClick={handle} />
         </Typography>
-        <Typography
-          id="modal-description"
-          sx={{ mt: 2 }}
-          component={"div"}
-        >
+        <Typography id="modal-description" sx={{ mt: 2 }} component={"div"}>
           {checkList}
         </Typography>
         <Typography id="modal-title" component={"div"}>

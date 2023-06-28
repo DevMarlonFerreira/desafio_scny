@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {Box, Button, Typography, Modal} from "@mui/material";
+import { Box, Button, Typography, Modal } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import VeiculoDataService from "app/services/veiculo.service";
 import { IVeiculo } from "typings/IVeiculo.d";
@@ -26,7 +26,7 @@ export default function BasicModal({
     await VeiculoDataService.delete(id);
     handle();
   };
-  
+
   return (
     <Modal
       component={"div"}
@@ -36,15 +36,14 @@ export default function BasicModal({
       aria-describedby="modal-description"
     >
       <Box sx={style}>
+        <CloseIcon
+          onClick={handle}
+          style={{ float: "right", cursor: "pointer" }}
+        />
         <Typography id="modal-title" variant="h6" component="h2">
           Exclusão de veículo
-          <CloseIcon onClick={handle} />
         </Typography>
-        <Typography
-          id="modal-description"
-          sx={{ mt: 2 }}
-          component={"div"}
-        >
+        <Typography id="modal-description" sx={{ mt: 2 }} component={"div"}>
           {placa}
         </Typography>
         <Typography id="modal-title" component={"div"}>

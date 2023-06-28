@@ -36,15 +36,11 @@ export default function BasicModal({
       aria-describedby="modal-description"
     >
       <Box sx={style}>
+        <CloseIcon onClick={handle} style={{ float: "right", cursor: "pointer" }} />
         <Typography id="modal-title" variant="h6" component="h2">
           Exclusão de cliente
-          <CloseIcon onClick={handle} />
         </Typography>
-        <Typography
-          id="modal-description"
-          sx={{ mt: 2 }}
-          component={"div"}
-        >
+        <Typography id="modal-description" sx={{ mt: 2 }} component={"div"}>
           {nome}
         </Typography>
         <Typography id="modal-title" component={"div"}>

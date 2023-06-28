@@ -1,5 +1,6 @@
 import { useState } from "react";
-import {Box, Button, Typography, Modal, TextField} from "@mui/material";
+import { Box, Button, Typography, Modal, TextField } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import DeslocamentoDataService from "app/services/deslocamento.service";
 import { IDeslocamento } from "typings/IDeslocamento.d";
 import Calendar from "../Calendar";
@@ -53,14 +54,14 @@ export default function BasicModal({
       component={"div"}
     >
       <Box sx={style}>
+        <CloseIcon
+          onClick={handle}
+          style={{ float: "right", cursor: "pointer" }}
+        />
         <Typography id="modal-title" variant="h6" component="h2">
           Edição de deslocamento
         </Typography>
-        <Typography
-          id="modal-description"
-          sx={{ mt: 2 }}
-          component={"span"}
-        >
+        <Typography id="modal-description" sx={{ mt: 2 }} component={"span"}>
           <TextField
             label="Quilômetro final"
             onChange={(e) => setKmFinal(parseInt(e.target.value))}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Box, Button, Typography, Modal, TextField } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import CondutorDataService from "app/services/condutor.service";
 import { ICondutor } from "typings/ICondutor";
 import Calendar from "../Calendar";
@@ -45,8 +46,13 @@ export default function NewCondutor({
         onClose={handle}
         aria-labelledby="modal-title"
         aria-describedby="modal-description"
+        style={{ overflow: "scroll" }}
       >
         <Box sx={style}>
+          <CloseIcon
+            onClick={handle}
+            style={{ float: "right", cursor: "pointer" }}
+          />
           <Typography id="modal-title" variant="h6" component="h2">
             Cadastro de condutor
           </Typography>

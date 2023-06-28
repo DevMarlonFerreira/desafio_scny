@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import {Box, Button, Typography, Modal, TextField} from "@mui/material";
+import { Box, Button, Typography, Modal, TextField } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import VeiculoDataService from "app/services/veiculo.service";
 import { IVeiculo } from "typings/IVeiculo.d";
 import style from "app/styles/box";
@@ -13,8 +14,12 @@ export default function BasicModal({
   handle: () => void;
   open: boolean;
 }) {
-  const [marcaModelo, setMarcaModelo] = useState<IVeiculo["marcaModelo"]>(veiculo.marcaModelo);
-  const [anoFabricacao, setAnoFabricacao] = useState<IVeiculo["anoFabricacao"]>(veiculo.anoFabricacao);
+  const [marcaModelo, setMarcaModelo] = useState<IVeiculo["marcaModelo"]>(
+    veiculo.marcaModelo
+  );
+  const [anoFabricacao, setAnoFabricacao] = useState<IVeiculo["anoFabricacao"]>(
+    veiculo.anoFabricacao
+  );
   const [kmAtual, setKmAtual] = useState<IVeiculo["kmAtual"]>(veiculo.kmAtual);
 
   useEffect(() => {
@@ -44,14 +49,14 @@ export default function BasicModal({
       component={"div"}
     >
       <Box sx={style}>
+        <CloseIcon
+          onClick={handle}
+          style={{ float: "right", cursor: "pointer" }}
+        />
         <Typography id="modal-title" variant="h6" component="h2">
           Edição de veículo
         </Typography>
-        <Typography
-          id="modal-description"
-          sx={{ mt: 2 }}
-          component={"span"}
-        >
+        <Typography id="modal-description" sx={{ mt: 2 }} component={"span"}>
           <TextField
             label="Modelo"
             onChange={(e) => setMarcaModelo(e.target.value)}

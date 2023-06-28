@@ -1,5 +1,6 @@
 import { useState } from "react";
-import {Box, Button, Typography, Modal, TextField} from "@mui/material";
+import { Box, Button, Typography, Modal, TextField } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import ClienteDataService from "app/services/cliente.service";
 import style from "app/styles/box";
 
@@ -42,8 +43,13 @@ export default function NewClient({
         onClose={handle}
         aria-labelledby="modal-title"
         aria-describedby="modal-description"
+        style={{ overflow: "scroll" }}
       >
         <Box sx={style}>
+          <CloseIcon
+            onClick={handle}
+            style={{ float: "right", cursor: "pointer" }}
+          />
           <Typography id="modal-title" variant="h6" component="h2">
             Cadastro de cliente
           </Typography>

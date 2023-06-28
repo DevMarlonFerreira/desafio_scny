@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Box, Button, Typography, Modal, TextField } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import ClienteDataService from "app/services/cliente.service";
 import { ICliente } from "typings/ICliente.d";
 import style from "app/styles/box";
@@ -55,14 +56,14 @@ export default function BasicModal({
       component={"div"}
     >
       <Box sx={style}>
+        <CloseIcon
+          onClick={handle}
+          style={{ float: "right", cursor: "pointer" }}
+        />
         <Typography id="modal-title" variant="h6" component="h2">
           Edição de cliente
         </Typography>
-        <Typography
-          id="modal-description"
-          sx={{ mt: 2 }}
-          component={"span"}
-        >
+        <Typography id="modal-description" sx={{ mt: 2 }} component={"span"}>
           <TextField
             label="Nome"
             onChange={(e) => setNome(e.target.value)}
