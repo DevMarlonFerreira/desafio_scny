@@ -51,14 +51,13 @@ export default function BasicTable() {
         variant="standard"
         onChange={(e) => setFilter(parseInt(e.target.value))}
       />
-
       <Button variant="contained" onClick={(e) => handleDataFilter()}>
         Pesquisar
       </Button>
       <Button variant="contained" onClick={(e) => handleData()}>
         Exibir todos
       </Button>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 650 }} aria-label="Tabela deslocamento">
         <TableHead>
           <TableRow>
             <TableCell align="center">Quilometro inicial</TableCell>

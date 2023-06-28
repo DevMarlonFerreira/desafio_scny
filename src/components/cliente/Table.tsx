@@ -10,7 +10,7 @@ const ModalDelete = lazy(() => import("./ModalDelete"));
 export default function BasicTable() {
   const [showPut, setShowPut] = useState(false);
   const [showDel, setShowDel] = useState(false);
-  
+
   const [rows, setRows] = useState<ICliente[]>();
   const [cliente, setCliente] = useState<ICliente>();
   const [filter, setFilter] = useState<number>(0);
@@ -58,7 +58,7 @@ export default function BasicTable() {
       <Button variant="contained" onClick={(e) => handleData()}>
         Exibir todos
       </Button>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 650 }} aria-label="Tabela cliente">
         <TableHead>
           <TableRow>
             <TableCell align="center">Nome</TableCell>

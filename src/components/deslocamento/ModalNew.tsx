@@ -84,19 +84,7 @@ export default function BasicModal({
             fullWidth
             value={kmInicial}
           />
-          {/* <TextField
-            label="Início do deslocamento"
-            onChange={(e) => setInicioDeslocamento(e.target.value)}
-            required
-            variant="outlined"
-            color="secondary"
-            type="text"
-            sx={{ mb: 3 }}
-            fullWidth
-            value={inicioDeslocamento}
-          /> */}
           <Calendar date={inicioDeslocamento} callback={callBackCalendar} />
-
           <TextField
             label="CheckList"
             onChange={(e) => setCheckList(e.target.value)}

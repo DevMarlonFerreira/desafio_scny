@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {Box, Button, Typography, Modal} from "@mui/material";
+import { Box, Button, Typography, Modal } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ClienteDataService from "app/services/cliente.service";
 import { ICliente } from "typings/ICliente.d";
@@ -37,7 +37,7 @@ export default function BasicModal({
     await ClienteDataService.delete(id);
     handle();
   };
-  
+
   return (
     <Modal
       component={"div"}
@@ -50,7 +50,6 @@ export default function BasicModal({
         <Typography id="modal-modal-title" variant="h6" component="h2">
           Exclusão de cliente
           <CloseIcon onClick={handle} />
-
         </Typography>
         <Typography
           id="modal-modal-description"

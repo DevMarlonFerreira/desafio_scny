@@ -50,10 +50,6 @@ export default function NewClient({
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Cadastro de veículo
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Novo
-          </Typography>
-          <Typography id="modal-modal-title"></Typography>
           <TextField
             label="Placa"
             onChange={(e) => setPlaca(e.target.value)}

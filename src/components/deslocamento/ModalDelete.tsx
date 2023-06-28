@@ -50,7 +50,6 @@ export default function BasicModal({
         <Typography id="modal-modal-title" variant="h6" component="h2">
           Fim de deslocamento
           <CloseIcon onClick={handle} />
-
         </Typography>
         <Typography
           id="modal-modal-description"

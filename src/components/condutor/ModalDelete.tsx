@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {Box, Button, Typography, Modal} from "@mui/material";
+import { Box, Button, Typography, Modal } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import CondutorDataService from "app/services/condutor.service";
 import { ICondutor } from "typings/ICondutor";
@@ -37,7 +37,7 @@ export default function BasicModal({
     await CondutorDataService.delete(id);
     handle();
   };
-  
+
   return (
     <Modal
       component={"div"}
@@ -50,7 +50,6 @@ export default function BasicModal({
         <Typography id="modal-modal-title" variant="h6" component="h2">
           Exclusão de condutor
           <CloseIcon onClick={handle} />
-
         </Typography>
         <Typography
           id="modal-modal-description"

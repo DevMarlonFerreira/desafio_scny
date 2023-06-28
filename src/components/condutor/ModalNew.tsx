@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Box, Button, Typography, Modal, TextField} from "@mui/material";
+import { Box, Button, Typography, Modal, TextField } from "@mui/material";
 import CondutorDataService from "app/services/condutor.service";
 import { ICondutor } from "typings/ICondutor";
 import Calendar from "../Calendar";
@@ -61,10 +61,6 @@ export default function NewCondutor({
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Cadastro de condutor
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Novo
-          </Typography>
-          <Typography id="modal-modal-title"></Typography>
           <TextField
             label="Nome"
             onChange={(e) => setNome(e.target.value)}
