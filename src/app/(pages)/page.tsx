@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Typography } from "@mui/material";
 import SimpleContainer from "components/SimpleContainer";
@@ -7,7 +7,12 @@ import Navigation from "components/Navigation";
 const Page = () => {
   return (
     <SimpleContainer>
-      <Typography id="title" variant="h1" component="h2">
+      <Typography
+        id="title"
+        variant="h1"
+        component="h2"
+        textAlign="center"
+      >
         Cadastro de veículo
       </Typography>
       <Navigation index={7} />
