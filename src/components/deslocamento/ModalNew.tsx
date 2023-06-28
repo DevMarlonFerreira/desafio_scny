@@ -25,24 +25,22 @@ const style = {
 };
 
 export default function BasicModal({
-  deslocamento,
   handle,
   open,
 }: {
-  deslocamento: IDeslocamento;
   handle: () => void;
   open: boolean;
 }) {
-  const [kmInicial, setKmInicial] = useState<IDeslocamento["kmInicial"]>(deslocamento.kmInicial);
-  const [kmFinal, setKmFinal] = useState<IDeslocamento["kmFinal"]>(deslocamento.kmFinal);
-  const [inicioDeslocamento, setInicioDeslocamento] = useState<IDeslocamento["inicioDeslocamento"]>(deslocamento.inicioDeslocamento);
-  const [fimDeslocamento, setFimDeslocamento] = useState<IDeslocamento["fimDeslocamento"]>(deslocamento.fimDeslocamento);
-  const [checkList, setCheckList] = useState<IDeslocamento["checkList"]>(deslocamento.checkList);
-  const [motivo, setMotivo] = useState<IDeslocamento["motivo"]>(deslocamento.motivo);
-  const [observacao, setObservacao] = useState<IDeslocamento["observacao"]>(deslocamento.observacao);
-  const [idCondutor, setIdCondutor] = useState<IDeslocamento["idCondutor"]>(deslocamento.idCondutor);
-  const [idVeiculo, setIdVeiculo] = useState<IDeslocamento["idVeiculo"]>(deslocamento.idVeiculo);
-  const [idCliente, setIdCliente] = useState<IDeslocamento["idCliente"]>(deslocamento.idCliente);
+  const [kmInicial, setKmInicial] = useState<IDeslocamento["kmInicial"]>();
+  const [inicioDeslocamento, setInicioDeslocamento] = useState<
+    IDeslocamento["inicioDeslocamento"]
+  >(new Date());
+  const [checkList, setCheckList] = useState<IDeslocamento["checkList"]>("");
+  const [motivo, setMotivo] = useState<IDeslocamento["motivo"]>("");
+  const [observacao, setObservacao] = useState<IDeslocamento["observacao"]>("");
+  const [idCondutor, setIdCondutor] = useState<IDeslocamento["idCondutor"]>();
+  const [idVeiculo, setIdVeiculo] = useState<IDeslocamento["idVeiculo"]>();
+  const [idCliente, setIdCliente] = useState<IDeslocamento["idCliente"]>();
 
   // useEffect(() => {
   //   setCategoriaHabilitacao(deslocamento.categoriaHabilitacao);
@@ -51,20 +49,30 @@ export default function BasicModal({
 
   const execute = async () => {
     const body = {
-      id: deslocamento.id,
+      kmInicial,
+      inicioDeslocamento,
+      checkList,
+      motivo,
+      observacao,
+      idCondutor,
+      idVeiculo,
+      idCliente
     };
 
     console.log(body);
 
-    await DeslocamentoDataService.update(body, deslocamento.id).catch((error) => {
-      console.log(error);
-    });
+    await DeslocamentoDataService.create(body).catch(
+      (error) => {
+        console.log(error);
+      }
+    );
     handle();
   };
 
-  // const callBackCalendar = (date: Date) => {
-  //   setVencimentoHabilitacao(date.toISOString());
-  // };
+  const callBackCalendar = (date: Date) => {
+    console.log(date);
+    setInicioDeslocamento(date.toISOString());
+  };
 
   return (
     <Modal
@@ -84,19 +92,97 @@ export default function BasicModal({
           component={"span"}
         >
           <TextField
-            label="Catergoria da habilitação"
-            onChange={(e) => setCategoriaHabilitacao(e.target.value)}
+            label="Quilômetro inicial"
+            onChange={(e) => setKmInicial(parseInt(e.target.value))}
             required
             variant="outlined"
             color="secondary"
             type="text"
             sx={{ mb: 3 }}
             fullWidth
-            value={categoriaHabilitacao}
+            value={kmInicial}
           />
-          {/* <Calendar date={vencimentoHabilitacao} callback={callBackCalendar} /> */}
+          {/* <TextField
+            label="Início do deslocamento"
+            onChange={(e) => setInicioDeslocamento(e.target.value)}
+            required
+            variant="outlined"
+            color="secondary"
+            type="text"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={inicioDeslocamento}
+          /> */}
+          <Calendar date={inicioDeslocamento} callback={callBackCalendar} />
+
+          <TextField
+            label="CheckList"
+            onChange={(e) => setCheckList(e.target.value)}
+            required
+            variant="outlined"
+            color="secondary"
+            type="text"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={checkList}
+          />
+          <TextField
+            label="Motivo"
+            onChange={(e) => setMotivo(e.target.value)}
+            required
+            variant="outlined"
+            color="secondary"
+            type="text"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={motivo}
+          />
+          <TextField
+            label="Observação"
+            onChange={(e) => setObservacao(e.target.value)}
+            required
+            variant="outlined"
+            color="secondary"
+            type="text"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={observacao}
+          />
+          <TextField
+            label="Condutor"
+            onChange={(e) => setIdCondutor(parseInt(e.target.value))}
+            required
+            variant="outlined"
+            color="secondary"
+            type="text"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={idCondutor}
+          />
+          <TextField
+            label="Veículo "
+            onChange={(e) => setIdVeiculo(parseInt(e.target.value))}
+            required
+            variant="outlined"
+            color="secondary"
+            type="text"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={idVeiculo}
+          />
+          <TextField
+            label="Cliente"
+            onChange={(e) => setIdCliente(parseInt(e.target.value))}
+            required
+            variant="outlined"
+            color="secondary"
+            type="text"
+            sx={{ mb: 3 }}
+            fullWidth
+            value={idCliente}
+          />
         </Typography>
-        <Button onClick={execute} aria-label="editar cliente">
+        <Button onClick={execute} aria-label="editar deslocamento">
           Salvar
         </Button>
       </Box>

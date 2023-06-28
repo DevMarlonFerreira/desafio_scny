@@ -2,7 +2,7 @@ export interface IDeslocamento {
   id: number;
   kmInicial?: number;
   kmFinal?: number;
-  inicioDeslocamento?: Date;
+  inicioDeslocamento?: Date | string;
   fimDeslocamento?: Date;
   checkList?: string;
   motivo?: string;

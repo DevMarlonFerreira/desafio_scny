@@ -13,7 +13,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import DeslocamentoDataService from "app/services/deslocamento.service";
 import { IDeslocamento } from "typings/IDeslocamento.d";
 const ModalEditar = lazy(() => import("./ModalEditar"));
-// const ModalDelete = lazy(() => import("./ModalDelete"));
+const ModalDelete = lazy(() => import("./ModalDelete"));
 
 export default function BasicTable() {
   const [showPut, setShowPut] = useState(false);
@@ -118,13 +118,13 @@ export default function BasicTable() {
           open={showPut}
         />
       )}
-      {/* {veiculo && (
+      {deslocamento && (
         <ModalDelete
-          veiculo={veiculo as IVeiculo}
+          deslocamento={deslocamento as IDeslocamento}
           handle={handleDel}
           open={showDel}
         />
-      )} */}
+      )}
     </TableContainer>
   );
 }
