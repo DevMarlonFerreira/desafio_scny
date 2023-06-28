@@ -32,22 +32,22 @@ export default function BasicModal({
       component={"div"}
       open={open}
       onClose={handle}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-description"
     >
       <Box sx={style}>
-        <Typography id="modal-modal-title" variant="h6" component="h2">
+        <Typography id="modal-title" variant="h6" component="h2">
           Exclusão de veículo
           <CloseIcon onClick={handle} />
         </Typography>
         <Typography
-          id="modal-modal-description"
+          id="modal-description"
           sx={{ mt: 2 }}
           component={"div"}
         >
           {placa}
         </Typography>
-        <Typography id="modal-modal-title" component={"div"}>
+        <Typography id="modal-title" component={"div"}>
           Realmente deseja excluir este veículo?
         </Typography>
         <Button onClick={execute} aria-label="excluir veículo">

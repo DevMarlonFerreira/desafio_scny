@@ -48,16 +48,16 @@ export default function BasicModal({
     <Modal
       open={open}
       onClose={handle}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-description"
       component={"div"}
     >
       <Box sx={style}>
-        <Typography id="modal-modal-title" variant="h6" component="h2">
+        <Typography id="modal-title" variant="h6" component="h2">
           Edição de deslocamento
         </Typography>
         <Typography
-          id="modal-modal-description"
+          id="modal-description"
           sx={{ mt: 2 }}
           component={"span"}
         >

@@ -1,12 +1,16 @@
+"use client"
+
+import { Typography } from "@mui/material";
 import SimpleContainer from "components/SimpleContainer";
 import Navigation from "components/Navigation";
-import Table from "components/veiculo/Table";
 
 const Page = () => {
   return (
     <SimpleContainer>
+      <Typography id="title" variant="h1" component="h2">
+        Cadastro de veículo
+      </Typography>
       <Navigation index={7} />
-      <Table />
     </SimpleContainer>
   );
 };

@@ -43,11 +43,11 @@ export default function NewCondutor({
       <Modal
         open={open}
         onClose={handle}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        aria-labelledby="modal-title"
+        aria-describedby="modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography id="modal-title" variant="h6" component="h2">
             Cadastro de condutor
           </Typography>
           <TextField
