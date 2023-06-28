@@ -58,7 +58,7 @@ export default function BasicTable() {
       <Button variant="contained" onClick={(e) => handleData()}>
         Exibir todos
       </Button>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 650 }} aria-label="Tabela veículo">
         <TableHead>
           <TableRow>
             <TableCell align="center">Placa</TableCell>

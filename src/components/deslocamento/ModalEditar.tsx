@@ -3,18 +3,7 @@ import {Box, Button, Typography, Modal, TextField} from "@mui/material";
 import DeslocamentoDataService from "app/services/deslocamento.service";
 import { IDeslocamento } from "typings/IDeslocamento.d";
 import Calendar from "../Calendar";
-
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
+import style from "app/styles/box";
 
 export default function BasicModal({
   deslocamento,
